@@ -2,13 +2,14 @@
 
 * This book is about PySpark (Python API for Spark)
 * Publication date: Fall 2019
-* Author: Mahmoud Parsian
+* Author: Mahmoud Parsian (mahmoud.parsian@yahoo.com)
 
 
 
 ![PySpark Algorithms](./images/pyspark_algorithms.jpg)
 
 
+### Table of Contents
 ````
 chap01: Introduction to PySpark
 chap02: Hello World
