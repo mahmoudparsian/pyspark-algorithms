@@ -1,13 +1,30 @@
 # PySpark Algorithms Book
-This book is about PySpark: will be publised by Fall 2019
 
-* Introduction to PySpark
-* Transformations and Actions
-* Reductions in Spark
-* DataFrames
-* Monoids
-...
+* This book is about PySpark
+* Publication date: Fall 2019
+* Author: Mahmoud Parsian
+
+
 
 ![PySpark Algorithms](./images/pyspark_algorithms.jpg)
 
 
+````
+chap01: Introduction to PySpark
+chap02: Hello World
+chap03: Data Abstractions
+chap04: Getting Started
+chap05: Transformations in Spark
+chap06: Reductions in Spark
+chap07: DataFrames and SQL
+chap08: Spark DataSources
+chap09: Logistic Regression
+chap10: Movie Recommendations
+chap11: Graph Algorithms
+chap12: Design Patterns and Monoids
+chap13: FP-Growth
+chap14: LDA
+chap15: Linear Regression
+
+Appendix A: How To Install Spark
+````
