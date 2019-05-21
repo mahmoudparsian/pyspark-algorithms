@@ -8,4 +8,6 @@ This book is about PySpark: will be publised by Fall 2019
 * Monoids
 ...
 
+![PySpark Algorithms](./images/pyspark_algorithms.jpg)
+
 
