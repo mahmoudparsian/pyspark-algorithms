@@ -1,8 +1,11 @@
-# PySpark in Action Book
-This book is about PySpark and Spark
+# PySpark Algorithms Book
+This book is about PySpark: will be publised by Fall 2019
 
-* Introduction to MapReduce and Spark
-* Spark Transformations and Actions
-* Spark Reductions
+* Introduction to PySpark
+* Transformations and Actions
+* Reductions in Spark
+* DataFrames
+* Monoids
+...
 
 
