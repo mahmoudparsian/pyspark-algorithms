@@ -4,7 +4,11 @@
 * Publication date: Fall 2019
 * Author: Mahmoud Parsian (mahmoud.parsian@yahoo.com)
 
+## Software
 
+* Spark 2.4.3
+* Python 3.7.2
+* Java 8
 
 ![PySpark Algorithms](./images/pyspark_algorithms.jpg)
 
