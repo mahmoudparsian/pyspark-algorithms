@@ -4,14 +4,14 @@
 * Publication date: Fall 2019
 * Author: Mahmoud Parsian (mahmoud.parsian@yahoo.com)
 
-## Software
+
+![PySpark Algorithms](./images/pyspark_algorithms.jpg)
+
+### Software
 
 * Spark 2.4.3
 * Python 3.7.2
 * Java 8
-
-![PySpark Algorithms](./images/pyspark_algorithms.jpg)
-
 
 ### Table of Contents
 ````
@@ -32,4 +32,5 @@ chap14: LDA
 chap15: Linear Regression
 
 Appendix A: How To Install Spark
+Appendix B: How to Use Lambda Expressions
 ````
