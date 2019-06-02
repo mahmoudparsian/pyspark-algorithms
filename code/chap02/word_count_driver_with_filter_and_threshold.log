@@ -1,0 +1,42 @@
+export THRESHOLD_WORD_LENGTH=2
+export THRESHOLD_FREQUENCY=1
+./bin/spark-submit word_count_driver_with_filter_and_threshold.py sample_file_extra.txt ${THRESHOLD_WORD_LENGTH} ${THRESHOLD_FREQUENCY}
+
+len(sys.argv) =  4
+script: sys.argv[0] =  /pyspark_book/code/chap02/word_count_driver_with_filter_and_threshold.py
+p1:     sys.argv[1] =  sample_file_extra.txt
+p2:     sys.argv[2] =  2
+p3:     sys.argv[3] =  1
+
+script: /pyspark_book/git-manning/code/chap02/word_count_driver_with_filter_and_threshold.py
+
+input_path: sample_file_extra.txt
+
+file_contents =
+a red fox jumped high and of high
+red fox jumped of high fence
+a fox jumped
+
+THRESHOLD_WORD_LENGTH =  2
+THRESHOLD_FREQUENCY =  1
+
+frequencies.count():  6
+frequencies.collect():  
+[
+ (u'and', 1), 
+ (u'high', 3), 
+ (u'fox', 3), 
+ (u'red', 2), 
+ (u'fence', 1), 
+ (u'jumped', 3)
+]
+
+filtered.count():  4
+filtered.collect(): 
+[
+ (u'high', 3), 
+ (u'fox', 3), 
+ (u'red', 2), 
+ (u'jumped', 3)
+]
+ 

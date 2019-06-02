@@ -1,0 +1,14 @@
+./bin/spark-submit word_count_driver_shorthand.py sample_file.txt
+
+input_path: sample_file.txt
+
+frequencies.count():  6
+frequencies.collect():  
+[
+ (u'and', 1), 
+ (u'high', 3), 
+ (u'fox', 3), 
+ (u'red', 2), 
+ (u'fence', 1), 
+ (u'jumped', 3)
+]

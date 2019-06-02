@@ -1,0 +1,47 @@
+#-----------------------------------------------------
+# This is a word count in PySpark.
+# The goal is to show how "word count" works.
+# Here we write transformations in a shorthand!
+#
+# RULES:
+#   RULE-1:
+#        Here I introduce the RDD.filter() transformation
+#        to ignore the words if their length is less than 3.
+#        This is implemented by:
+#            .filter(lambda word : len(word) > 2)
+#   RULE-2:
+#        If the total frequency of any unique word is less
+#        than 2, then ignore that word from the final output
+#        This is implemented by:
+#            .filter(lambda (k, v) : v > 1)
+#
+#------------------------------------------------------
+
+./bin/spark-submit word_count_driver_with_filter.py sample_file_extra.txt
+
+input_path: sample_file_extra.txt
+
+file_contents =
+a red fox jumped high and of high
+red fox jumped of high fence
+a fox jumped
+
+frequencies.count():  6
+frequencies.collect():  
+[
+ (u'and', 1), 
+ (u'high', 3), 
+ (u'fox', 3), 
+ (u'red', 2), 
+ (u'fence', 1), 
+ (u'jumped', 3)
+]
+
+filtered.count():  4
+filtered.collect():  
+[
+ (u'high', 3), 
+ (u'fox', 3), 
+ (u'red', 2), 
+ (u'jumped', 3)
+]

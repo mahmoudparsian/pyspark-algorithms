@@ -1,0 +1,47 @@
+$ cat generate_key_value_pairs.py
+from __future__ import print_function
+import random
+#---------------------------------------------------------
+# Create 1000,000,000 "<key><,><value>" pairs such that
+#   key is a random number in range of 1 to 10,000
+#   value is a random number in range of 1 to 5
+#---------------------------------------------------------
+for x in range(1000000000):
+    print(str(random.randint(1,10000)) + "," + str(random.randint(1,5)))
+
+# create one billion (key, value) pairs
+$ python generate_key_value_pairs.py > kv.txt
+
+$ ls -l kv.txt
+-rw-r--r--  1 mparsian  dev  6889378545 Mar 10 10:17 kv.txt
+
+$ wc -l kv.txt
+1000000000 kv.txt
+
+$ head kv.txt
+2122,3
+3147,4
+8281,4
+5390,5
+4549,4
+2901,3
+288,5
+2878,4
+2250,2
+3452,3
+
+ 
+$ ./sum_by_groupbykey.sh
+Mar 10 10:36:16 PST 2019
+input path :  .../code/chap02/kv.txt
+rdd.getNumPartitions() =  206
+
+results =  
+[
+ ('8079', 299950), 
+ ('9263', 299717), 
+ ('8095', 300566), 
+ ...
+]
+
+33 minutes and 53 seconds elapsed.
