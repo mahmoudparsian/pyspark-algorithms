@@ -5,7 +5,7 @@
 * Author: Mahmoud Parsian (mahmoud.parsian@yahoo.com)
 
 
-![PySpark Algorithms](./images/pyspark_algorithms.jpg =800x400)
+![PySpark Algorithms](./images/pyspark_algorithms.jpg)
 
 ### Software
 
