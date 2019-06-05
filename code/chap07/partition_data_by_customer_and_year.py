@@ -39,8 +39,10 @@ df = spark.read.option("inferSchema", "true")\
 df.show(truncate=False)
 df.printSchema()
 #
-# partition data
-df.write.partitionBy('customer_id', 'year').parquet(output_path)
+# partition data by 'customer_id', and then by 'year'
+# each partition will have one or more files
+df.write.partitionBy('customer_id', 'year')\
+  .parquet(output_path)
 
 # read the partitioned data back to another DataFrame
 df2 = spark.read.parquet(output_path)

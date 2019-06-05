@@ -45,8 +45,10 @@ df = spark.read.option("inferSchema", "true")\
 df.show(truncate=False)
 df.printSchema()
 #
-# partition data and create a 
-# SINFGLE FILE per create partition
+# partition data by 'customer_id', and then by 'year' 
+# and create a SINFGLE FILE per created partition.
+# DataFrame.repartition('customer_id', 'year') qurantees
+# a single file per partition.
 df.repartition('customer_id', 'year')\
   .write.partitionBy('customer_id', 'year')\
   .parquet(output_path)
