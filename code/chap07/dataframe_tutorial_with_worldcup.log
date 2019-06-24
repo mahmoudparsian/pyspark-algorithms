@@ -1,0 +1,188 @@
+./bin/spark-submit dataframe_tutorial_with_worldcup.py WorldCupPlayers.csv
+
+input_path: WorldCupPlayers.csv
+
+number of rows: worldcup_df.count(): 37784
+
+worldcup_df.show(10, truncate=False):
+
++-------+-------+-------------+-------------------+-------+------------+----------------+--------+---------+
+|RoundID|MatchID|Team Initials|Coach Name         |Line-up|Shirt Number|Player Name     |Position|Event    |
++-------+-------+-------------+-------------------+-------+------------+----------------+--------+---------+
+|201    |1096   |FRA          |CAUDRON Raoul (FRA)|S      |0           |Alex THEPOT     |GK      |null     |
+|201    |1096   |MEX          |LUQUE Juan (MEX)   |S      |0           |Oscar BONFIGLIO |GK      |null     |
+|201    |1096   |FRA          |CAUDRON Raoul (FRA)|S      |0           |Marcel LANGILLER|null    |G40'     |
+|201    |1096   |MEX          |LUQUE Juan (MEX)   |S      |0           |Juan CARRENO    |null    |G70'     |
+|201    |1096   |FRA          |CAUDRON Raoul (FRA)|S      |0           |Ernest LIBERATI |null    |null     |
+|201    |1096   |MEX          |LUQUE Juan (MEX)   |S      |0           |Rafael GARZA    |C       |null     |
+|201    |1096   |FRA          |CAUDRON Raoul (FRA)|S      |0           |Andre MASCHINOT |null    |G43' G87'|
+|201    |1096   |MEX          |LUQUE Juan (MEX)   |S      |0           |Hilario LOPEZ   |null    |null     |
+|201    |1096   |FRA          |CAUDRON Raoul (FRA)|S      |0           |Etienne MATTLER |null    |null     |
+|201    |1096   |MEX          |LUQUE Juan (MEX)   |S      |0           |Dionisio MEJIA  |null    |null     |
++-------+-------+-------------+-------------------+-------+------------+----------------+--------+---------+
+only showing top 10 rows
+
+worldcup_df.printSchema():
+
+root
+ |-- RoundID: integer (nullable = true)
+ |-- MatchID: integer (nullable = true)
+ |-- Team Initials: string (nullable = true)
+ |-- Coach Name: string (nullable = true)
+ |-- Line-up: string (nullable = true)
+ |-- Shirt Number: integer (nullable = true)
+ |-- Player Name: string (nullable = true)
+ |-- Position: string (nullable = true)
+ |-- Event: string (nullable = true)
+
+Column Names:
+ ['RoundID', 'MatchID', 'Team Initials', 'Coach Name', 'Line-up', 'Shirt Number', 'Player Name', 'Position', 'Event']
+
+Row Count:
+ 37784
+
+Column Count:
+ 9
+
+Describing a Particular Column
+
++-------+-------------------+
+|summary|         Coach Name|
++-------+-------------------+
+|  count|              37784|
+|   mean|               null|
+| stddev|               null|
+|    min|ACOSTA Nelson (URU)|
+|    max|         ZICO (BRA)|
++-------+-------------------+
+
++-------+--------+
+|summary|Position|
++-------+--------+
+|  count|    4143|
+|   mean|    null|
+| stddev|    null|
+|    min|       C|
+|    max|     GKC|
++-------+--------+
+
+Selecting Multiple Columns
+
++-----------------+------------+-------------------+
+|      Player Name|Shirt Number|         Coach Name|
++-----------------+------------+-------------------+
+|      Alex THEPOT|           0|CAUDRON Raoul (FRA)|
+|  Oscar BONFIGLIO|           0|   LUQUE Juan (MEX)|
+| Marcel LANGILLER|           0|CAUDRON Raoul (FRA)|
+|     Juan CARRENO|           0|   LUQUE Juan (MEX)|
+|  Ernest LIBERATI|           0|CAUDRON Raoul (FRA)|
+|     Rafael GARZA|           0|   LUQUE Juan (MEX)|
+|  Andre MASCHINOT|           0|CAUDRON Raoul (FRA)|
+|    Hilario LOPEZ|           0|   LUQUE Juan (MEX)|
+|  Etienne MATTLER|           0|CAUDRON Raoul (FRA)|
+|   Dionisio MEJIA|           0|   LUQUE Juan (MEX)|
+|     Marcel PINEL|           0|CAUDRON Raoul (FRA)|
+|     Felipe ROSAS|           0|   LUQUE Juan (MEX)|
+|  Alex VILLAPLANE|           0|CAUDRON Raoul (FRA)|
+|     Manuel ROSAS|           0|   LUQUE Juan (MEX)|
+|   Lucien LAURENT|           0|CAUDRON Raoul (FRA)|
+|        Jose RUIZ|           0|   LUQUE Juan (MEX)|
+|   Marcel CAPELLE|           0|CAUDRON Raoul (FRA)|
+|  Alfredo SANCHEZ|           0|   LUQUE Juan (MEX)|
+|Augustin CHANTREL|           0|CAUDRON Raoul (FRA)|
+|   Efrain AMEZCUA|           0|   LUQUE Juan (MEX)|
++-----------------+------------+-------------------+
+only showing top 20 rows
+
+Selecting Multiple Columns
+
++------------------+------------+--------------------+
+|       Player Name|Shirt Number|          Coach Name|
++------------------+------------+--------------------+
+|     Hector CASTRO|           0|SUPPICI Alberto (...|
+|Victoriano IRIARTE|           0|SUPPICI Alberto (...|
+|           ANTUNEZ|           0|EIZAGUIRRE Guille...|
+|    Marcial AVALOS|           0|FLEITAS SOLICH Ma...|
+|  Jackie HENDERSON|          16|   BATTIE Andy (SCO)|
+|Karl-Heinz METZNER|          11|HERBERGER Sepp (FRG)|
+|   Maurice SETTERS|          22|WINTERBOTTOM Walt...|
+|   Gunter SAWITZKI|          21|HERBERGER Sepp (FRG)|
+|    Dezso BUNDZSAK|          10|  BAROTI Lajos (HUN)|
+|   Vlatko MARKOVIC|           5|LOVRIC Ljubomir (...|
+|      HAN Bong Zin|          11|MYUNG Rye Hyun (PRK)|
+|      LI Dong Woon|          16|MYUNG Rye Hyun (PRK)|
+|   Hugo VILLANUEVA|          21|   ALAMOS Luis (CHI)|
+|      Brian LABONE|           5|    RAMSEY Alf (ENG)|
+|       Mario MONGE|          12|CARRASCO Hernan (...|
+|       Uli HOENESS|          14| SCHOEN Helmut (FRG)|
+|     Rainer BONHOF|          16| SCHOEN Helmut (FRG)|
+|         Harry VOS|          22| MICHELS Rinus (NED)|
+|    Staffan TAPPER|          14| ERICSON Georg (SWE)|
+|  Andrzej SZARMACH|          17|   GMOCH Jacek (POL)|
++------------------+------------+--------------------+
+only showing top 20 rows
+
+Filtering Data
+
++-------+-------+-------------+-------------------+-------+------------+-----------------+--------+---------+
+|RoundID|MatchID|Team Initials|         Coach Name|Line-up|Shirt Number|      Player Name|Position|    Event|
++-------+-------+-------------+-------------------+-------+------------+-----------------+--------+---------+
+|    201|   1096|          FRA|CAUDRON Raoul (FRA)|      S|           0|      Alex THEPOT|      GK|     null|
+|    201|   1096|          MEX|   LUQUE Juan (MEX)|      S|           0|  Oscar BONFIGLIO|      GK|     null|
+|    201|   1096|          FRA|CAUDRON Raoul (FRA)|      S|           0| Marcel LANGILLER|    null|     G40'|
+|    201|   1096|          MEX|   LUQUE Juan (MEX)|      S|           0|     Juan CARRENO|    null|     G70'|
+|    201|   1096|          FRA|CAUDRON Raoul (FRA)|      S|           0|  Ernest LIBERATI|    null|     null|
+|    201|   1096|          MEX|   LUQUE Juan (MEX)|      S|           0|     Rafael GARZA|       C|     null|
+|    201|   1096|          FRA|CAUDRON Raoul (FRA)|      S|           0|  Andre MASCHINOT|    null|G43' G87'|
+|    201|   1096|          MEX|   LUQUE Juan (MEX)|      S|           0|    Hilario LOPEZ|    null|     null|
+|    201|   1096|          FRA|CAUDRON Raoul (FRA)|      S|           0|  Etienne MATTLER|    null|     null|
+|    201|   1096|          MEX|   LUQUE Juan (MEX)|      S|           0|   Dionisio MEJIA|    null|     null|
+|    201|   1096|          FRA|CAUDRON Raoul (FRA)|      S|           0|     Marcel PINEL|    null|     null|
+|    201|   1096|          MEX|   LUQUE Juan (MEX)|      S|           0|     Felipe ROSAS|    null|     null|
+|    201|   1096|          FRA|CAUDRON Raoul (FRA)|      S|           0|  Alex VILLAPLANE|       C|     null|
+|    201|   1096|          MEX|   LUQUE Juan (MEX)|      S|           0|     Manuel ROSAS|    null|     null|
+|    201|   1096|          FRA|CAUDRON Raoul (FRA)|      S|           0|   Lucien LAURENT|    null|     G19'|
+|    201|   1096|          MEX|   LUQUE Juan (MEX)|      S|           0|        Jose RUIZ|    null|     null|
+|    201|   1096|          FRA|CAUDRON Raoul (FRA)|      S|           0|   Marcel CAPELLE|    null|     null|
+|    201|   1096|          MEX|   LUQUE Juan (MEX)|      S|           0|  Alfredo SANCHEZ|    null|     null|
+|    201|   1096|          FRA|CAUDRON Raoul (FRA)|      S|           0|Augustin CHANTREL|    null|     null|
+|    201|   1096|          MEX|   LUQUE Juan (MEX)|      S|           0|   Efrain AMEZCUA|    null|     null|
++-------+-------+-------------+-------------------+-------+------------+-----------------+--------+---------+
+only showing top 20 rows
+
+Filtering Data (Multiple Parameters)
+
++-------+-------+-------------+-------------------+-------+------------+---------------+--------+-----+
+|RoundID|MatchID|Team Initials|         Coach Name|Line-up|Shirt Number|    Player Name|Position|Event|
++-------+-------+-------------+-------------------+-------+------------+---------------+--------+-----+
+|    201|   1096|          FRA|CAUDRON Raoul (FRA)|      S|           0|    Alex THEPOT|      GK| null|
+|    201|   1096|          MEX|   LUQUE Juan (MEX)|      S|           0|Oscar BONFIGLIO|      GK| null|
++-------+-------+-------------+-------------------+-------+------------+---------------+--------+-----+
+
+Sorting Data (OrderBy)
+
++-------+-------+-------------+--------------------+-------+------------+-------------------+--------+---------+
+|RoundID|MatchID|Team Initials|          Coach Name|Line-up|Shirt Number|        Player Name|Position|    Event|
++-------+-------+-------------+--------------------+-------+------------+-------------------+--------+---------+
+|    323|     25|          BRA|LAZARONI Sebastia...|      S|           1|           TAFFAREL|      GK|     null|
+|    323|     25|          BRA|LAZARONI Sebastia...|      S|          21|       MAURO GALVAO|    null|Y50' O83'|
+|    323|     25|          ARG|BILARDO Carlos (ARG)|      S|          12|   Sergio GOYCOCHEA|      GK|     Y87'|
+|    323|     25|          BRA|LAZARONI Sebastia...|      S|           2|           JORGINHO|    null|     null|
+|    323|     25|          ARG|BILARDO Carlos (ARG)|      S|           4|      Jose BASUALDO|    null|     null|
+|    323|     25|          BRA|LAZARONI Sebastia...|      S|           3|      RICARDO GOMES|       C|     R85'|
+|    323|     25|          ARG|BILARDO Carlos (ARG)|      S|           7|   Jorge BURRUCHAGA|    null|     null|
+|    323|     25|          BRA|LAZARONI Sebastia...|      S|           4|              DUNGA|    null|     null|
+|    323|     25|          ARG|BILARDO Carlos (ARG)|      S|           8|   Claudio CANIGGIA|    null|     G81'|
+|    323|     25|          BRA|LAZARONI Sebastia...|      S|           5|             ALEMAO|    null|     O83'|
+|    323|     25|          ARG|BILARDO Carlos (ARG)|      S|          10|     Diego MARADONA|       C|     null|
+|    323|     25|          BRA|LAZARONI Sebastia...|      S|           6|             BRANCO|    null|     null|
+|    323|     25|          ARG|BILARDO Carlos (ARG)|      S|          14|     Ricardo GIUSTI|    null|     Y28'|
+|    323|     25|          BRA|LAZARONI Sebastia...|      S|           8|              VALDO|    null|     null|
+|    323|     25|          ARG|BILARDO Carlos (ARG)|      S|          15|       Pedro MONZON|    null|     Y27'|
+|    323|     25|          BRA|LAZARONI Sebastia...|      S|           9|             CARECA|    null|     null|
+|    323|     25|          ARG|BILARDO Carlos (ARG)|      S|          16|Julio OLARTICOECHEA|    null|     null|
+|    323|     25|          BRA|LAZARONI Sebastia...|      S|          15|             MULLER|    null|     null|
+|    323|     25|          ARG|BILARDO Carlos (ARG)|      S|          19|      Oscar RUGGERI|    null|     null|
+|    323|     25|          BRA|LAZARONI Sebastia...|      S|          19|      RICARDO ROCHA|    null|     Y40'|
++-------+-------+-------------+--------------------+-------+------------+-------------------+--------+---------+
+only showing top 20 rows

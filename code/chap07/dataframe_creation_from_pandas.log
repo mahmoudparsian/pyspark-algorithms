@@ -1,0 +1,36 @@
+./bin/spark-submit dataframe_creation_from_pandas.py
+
+panda_dataframe =
+    integers  floats    int_arrays
+0         2     1.2           [6]
+1         5    -2.0        [1, 2]
+2         7     1.5     [3, 4, 5]
+3         8     2.7  [6, 7, 8, 9]
+4         9     3.6  [10, 11, 12]
+
+spark_df =  
+DataFrame
+[
+   integers: bigint, 
+   floats: double, 
+   int_arrays: array<bigint>
+]
+
+spark_df.show():
++--------+------+------------+
+|integers|floats|  int_arrays|
++--------+------+------------+
+|       2|   1.2|         [6]|
+|       5|  -2.0|      [1, 2]|
+|       7|   1.5|   [3, 4, 5]|
+|       8|   2.7|[6, 7, 8, 9]|
+|       9|   3.6|[10, 11, 12]|
++--------+------+------------+
+
+pandas_df =
+    integers  floats    int_arrays
+0         2     1.2           [6]
+1         5    -2.0        [1, 2]
+2         7     1.5     [3, 4, 5]
+3         8     2.7  [6, 7, 8, 9]
+4         9     3.6  [10, 11, 12]

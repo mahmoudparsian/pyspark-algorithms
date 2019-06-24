@@ -1,0 +1,66 @@
+./bin/spark-submit dataframe_multi_dim_agg_groupby.py
+
+data =  
+[
+ ('Ames', 2006, 100), 
+ ('Ames', 2007, 200), 
+ ('Ames', 2008, 300), 
+ ('Sunnyvale', 2007, 10), 
+ ('Sunnyvale', 2008, 20), 
+ ('Sunnyvale', 2009, 30), 
+ ('Stanford', 2008, 90)
+]
+
+columns =  ('city', 'year', 'amount')
+
+sales DataFrame:
++---------+----+------+
+|     city|year|amount|
++---------+----+------+
+|     Ames|2006|   100|
+|     Ames|2007|   200|
+|     Ames|2008|   300|
+|Sunnyvale|2007|    10|
+|Sunnyvale|2008|    20|
+|Sunnyvale|2009|    30|
+| Stanford|2008|    90|
++---------+----+------+
+
+# GROUP BY (city, year)
++---------+----+------+
+|     city|year|amount|
++---------+----+------+
+|     Ames|2008|   300|
+|     Ames|2007|   200|
+|Sunnyvale|2009|    30|
+|Sunnyvale|2007|    10|
+|     Ames|2006|   100|
+| Stanford|2008|    90|
+|Sunnyvale|2008|    20|
++---------+----+------+
+
+# GROUP BY (city)
++---------+----+------+
+|     city|year|amount|
++---------+----+------+
+|     Ames|null|   600|
+| Stanford|null|    90|
+|Sunnyvale|null|    60|
++---------+----+------+
+
+# groupby_with_union:
++---------+----+------+
+|     city|year|amount|
++---------+----+------+
+|     Ames|null|   600|
+|     Ames|2006|   100|
+|     Ames|2007|   200|
+|     Ames|2008|   300|
+| Stanford|null|    90|
+| Stanford|2008|    90|
+|Sunnyvale|null|    60|
+|Sunnyvale|2007|    10|
+|Sunnyvale|2008|    20|
+|Sunnyvale|2009|    30|
++---------+----+------+
+

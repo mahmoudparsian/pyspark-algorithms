@@ -1,0 +1,68 @@
+./bin/spark-submit dataframe_creation_cvs_with_header.py emps_with_header.txt
+input_path: emps_with_header.txt
++----+-----+------+--------+
+|  id| name|salary|    dept|
++----+-----+------+--------+
+|1001| alex| 67000|   SALES|
+|1002|  bob| 24000|   SALES|
+|1003| boby| 24000|   SALES|
+|1004| jane| 69000|SOFTWARE|
+|1005|betty| 55000|SOFTWARE|
+|1006| jeff| 59000|SOFTWARE|
+|1007| dara| 72000|SOFTWARE|
++----+-----+------+--------+
+
+root
+ |-- id: integer (nullable = true)
+ |-- name: string (nullable = true)
+ |-- salary: integer (nullable = true)
+ |-- dept: string (nullable = true)
+
+df= DataFrame[id: int, name: string, salary: int, dept: string]
++----+-----+------+--------+
+|  id| name|salary|    dept|
++----+-----+------+--------+
+|1003| boby| 24000|   SALES|
+|1004| jane| 69000|SOFTWARE|
+|1005|betty| 55000|SOFTWARE|
+|1006| jeff| 59000|SOFTWARE|
+|1007| dara| 72000|SOFTWARE|
++----+-----+------+--------+
+
++----+-----+------+--------+
+|  id| name|salary|    dept|
++----+-----+------+--------+
+|1002|  bob| 24000|   SALES|
+|1003| boby| 24000|   SALES|
+|1005|betty| 55000|SOFTWARE|
+|1006| jeff| 59000|SOFTWARE|
++----+-----+------+--------+
+
+df5= DataFrame[name: string, salary: int]
++-----+------+
+| name|salary|
++-----+------+
+| alex| 67000|
+| jane| 69000|
+|betty| 55000|
+| jeff| 59000|
+| dara| 72000|
++-----+------+
+
+df6= DataFrame[name: string, salary: int]
++----+------+
+|name|salary|
++----+------+
+|jeff| 59000|
+|alex| 67000|
+|jane| 69000|
+|dara| 72000|
++----+------+
+
+df7= DataFrame[dept: string, count: bigint]
++--------+-----+
+|    dept|count|
++--------+-----+
+|   SALES|    3|
+|SOFTWARE|    4|
++--------+-----+

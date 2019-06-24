@@ -1,0 +1,23 @@
+./bin/spark-submit dataframe_creation_call_udf.py
+
+squareof3= 9
+
+squareof7= 49
+
+data= [('alex', 5), ('jane', 7), ('bob', 9)]
+
++----+---+
+|name|age|
++----+---+
+|alex|  5|
+|jane|  7|
+| bob|  9|
++----+---+
+
++----+---+-----------+
+|name|age|age_squared|
++----+---+-----------+
+|alex|  5|         25|
+|jane|  7|         49|
+| bob|  9|         81|
++----+---+-----------+

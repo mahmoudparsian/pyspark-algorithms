@@ -1,0 +1,54 @@
+./bin/spark-submit dataframe_creation_from_rows.py
+
+dept1= Row(id='100', name='Computer Science')
+
+dept5= Row(id='500', name='Biology')
+
+employee2= Row(first_name='jane', last_name='goldman', email='jane@stanford.edu', salary=120000)
+
+employee4= Row(first_name=None, last_name='eastwood', email='jimmy@berkeley.edu', salary=160000)
+
+department_with_employees_1.employees[0].email alex@berkeley.edu
+
++-----------------------------+------------------------------------------------------------------------------------------------------------------------------+
+|department                   |employees                                                                                                                     |
++-----------------------------+------------------------------------------------------------------------------------------------------------------------------+
+|[100, Computer Science]      |[[alex, smith, alex@berkeley.edu, 110000], [jane, goldman, jane@stanford.edu, 120000], [betty, ford, betty@gmail.com, 130000]]|
+|[200, Mechanical Engineering]|[[matei,, matei@yahoo.com, 140000], [, eastwood, jimmy@berkeley.edu, 160000]]                                                 |
+|[500, Biology]               |[[betty, ford, betty@gmail.com, 130000]]                                                                                      |
++-----------------------------+------------------------------------------------------------------------------------------------------------------------------+
+
+
+root
+ |-- department: struct (nullable = true)
+ |    |-- id: string (nullable = true)
+ |    |-- name: string (nullable = true)
+ |-- employees: array (nullable = true)
+ |    |-- element: struct (containsNull = true)
+ |    |    |-- first_name: string (nullable = true)
+ |    |    |-- last_name: string (nullable = true)
+ |    |    |-- email: string (nullable = true)
+ |    |    |-- salary: long (nullable = true)
+
+
++-----------------------+------------------------------------------------------------------------------------------------------------------------------+
+|department             |employees                                                                                                                     |
++-----------------------+------------------------------------------------------------------------------------------------------------------------------+
+|[100, Computer Science]|[[alex, smith, alex@berkeley.edu, 110000], [jane, goldman, jane@stanford.edu, 120000], [betty, ford, betty@gmail.com, 130000]]|
+|[300, Music]           |[[alex, smith, alex@berkeley.edu, 110000], [, eastwood, jimmy@berkeley.edu, 160000]]                                          |
+|[400, Sports]          |[[jane, goldman, jane@stanford.edu, 120000], [matei,, matei@yahoo.com, 140000]]                                               |
+|[500, Biology]         |[[betty, ford, betty@gmail.com, 130000]]                                                                                      |
++-----------------------+------------------------------------------------------------------------------------------------------------------------------+
+
+
+root
+ |-- department: struct (nullable = true)
+ |    |-- id: string (nullable = true)
+ |    |-- name: string (nullable = true)
+ |-- employees: array (nullable = true)
+ |    |-- element: struct (containsNull = true)
+ |    |    |-- first_name: string (nullable = true)
+ |    |    |-- last_name: string (nullable = true)
+ |    |    |-- email: string (nullable = true)
+ |    |    |-- salary: long (nullable = true)
+

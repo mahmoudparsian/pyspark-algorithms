@@ -1,0 +1,79 @@
+./bin/spark-submit dataframe_creation_with_explicit_schema.py emps_no_header.txt
+input_path: emps_no_header.txt
+emps_schema= StructType(List(StructField(id,IntegerType,true),StructField(name,StringType,true),StructField(salary,IntegerType,true),StructField(dept,StringType,true)))
++----+-----+------+--------+
+|  id| name|salary|    dept|
++----+-----+------+--------+
+|1001| alex| 67000|   SALES|
+|1002|  bob| 24000|   SALES|
+|1003| boby| 24000|   SALES|
+|1004| jane| 69000|SOFTWARE|
+|1005|betty| 55000|SOFTWARE|
+|1006| jeff| 59000|SOFTWARE|
+|1007| dara| 72000|SOFTWARE|
++----+-----+------+--------+
+
+root
+ |-- id: integer (nullable = true)
+ |-- name: string (nullable = true)
+ |-- salary: integer (nullable = true)
+ |-- dept: string (nullable = true)
+
+empsDF.collect()= 
+[
+ Row(id=1001, name=u'alex', salary=67000, dept=u'SALES'), 
+ Row(id=1002, name=u'bob', salary=24000, dept=u'SALES'), 
+ Row(id=1003, name=u'boby', salary=24000, dept=u'SALES'), 
+ Row(id=1004, name=u'jane', salary=69000, dept=u'SOFTWARE'), 
+ Row(id=1005, name=u'betty', salary=55000, dept=u'SOFTWARE'), 
+ Row(id=1006, name=u'jeff', salary=59000, dept=u'SOFTWARE'), 
+ Row(id=1007, name=u'dara', salary=72000, dept=u'SOFTWARE')
+]
+empsDF= DataFrame[id: int, name: string, salary: int, dept: string]
++----+-----+------+--------+
+|  id| name|salary|    dept|
++----+-----+------+--------+
+|1003| boby| 24000|   SALES|
+|1004| jane| 69000|SOFTWARE|
+|1005|betty| 55000|SOFTWARE|
+|1006| jeff| 59000|SOFTWARE|
+|1007| dara| 72000|SOFTWARE|
++----+-----+------+--------+
+
++----+-----+------+--------+
+|  id| name|salary|    dept|
++----+-----+------+--------+
+|1002|  bob| 24000|   SALES|
+|1003| boby| 24000|   SALES|
+|1005|betty| 55000|SOFTWARE|
+|1006| jeff| 59000|SOFTWARE|
++----+-----+------+--------+
+
+df5= DataFrame[name: string, salary: int]
++-----+------+
+| name|salary|
++-----+------+
+| alex| 67000|
+| jane| 69000|
+|betty| 55000|
+| jeff| 59000|
+| dara| 72000|
++-----+------+
+
+df6= DataFrame[name: string, salary: int]
++----+------+
+|name|salary|
++----+------+
+|jeff| 59000|
+|alex| 67000|
+|jane| 69000|
+|dara| 72000|
++----+------+
+
+df7= DataFrame[dept: string, count: bigint]
++--------+-----+
+|    dept|count|
++--------+-----+
+|   SALES|    3|
+|SOFTWARE|    4|
++--------+-----+

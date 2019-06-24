@@ -1,0 +1,64 @@
+$ wc -l life_expentancy.txt
+     197 life_expentancy.txt
+
+$ head life_expentancy.txt
+Afghanistan,48.673000,SAs
+Albania,76.918000,EuCA
+Algeria,73.131000,MENA
+Angola,51.093000,SSA
+Argentina,75.901000,Amer
+Armenia,74.241000,EuCA
+Aruba,75.246000,Amer
+Australia,81.907000,EAP
+Austria,80.854000,EuCA
+Azerbaijan,70.739000,EuCA
+
+
+./bin/spark-submit dataframe_with_statistical_data.py life_expentancy.txt
+
+input_path: life_expentancy.txt
++-----------+--------+------+
+|country    |life_exp|region|
++-----------+--------+------+
+|Afghanistan|48.673  |SAs   |
+|Albania    |76.918  |EuCA  |
+|Algeria    |73.131  |MENA  |
+|Angola     |51.093  |SSA   |
+|Argentina  |75.901  |Amer  |
+|Armenia    |74.241  |EuCA  |
+|Aruba      |75.246  |Amer  |
+|Australia  |81.907  |EAP   |
+|Austria    |80.854  |EuCA  |
+|Azerbaijan |70.739  |EuCA  |
+|Bahamas    |75.62   |Amer  |
+|Bahrain    |75.057  |MENA  |
+|Bangladesh |68.944  |SAs   |
+|Barbados   |76.835  |Amer  |
+|Belarus    |70.349  |EuCA  |
+|Belgium    |80.009  |EuCA  |
+|Belize     |76.072  |Amer  |
+|Benin      |56.081  |SSA   |
+|Bhutan     |67.185  |SAs   |
+|Bolivia    |66.618  |Amer  |
++-----------+--------+------+
+only showing top 20 rows
+
+root
+ |-- country: string (nullable = true)
+ |-- life_exp: double (nullable = true)
+ |-- region: string (nullable = true)
+
++-------+-----------+-----------------+------+
+|summary|    country|         life_exp|region|
++-------+-----------+-----------------+------+
+|  count|        197|              197|   197|
+|   mean|       null|69.86281725888323|  null|
+| stddev|       null|9.668736205594511|  null|
+|    min|Afghanistan|           47.794|  Amer|
+|    25%|       null|           64.666|  null|
+|    50%|       null|           73.235|  null|
+|    75%|       null|           76.652|  null|
+|    max|   Zimbabwe|           83.394|   SSA|
++-------+-----------+-----------------+------+
+
+median :  [48.397, 48.718]
