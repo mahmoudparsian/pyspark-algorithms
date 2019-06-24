@@ -1,0 +1,111 @@
+./bin/spark-submit basic_dataframe_example.py sample_people.json
+
+spark= <pyspark.sql.session.SparkSession object at 0x106bdba90>
+
+JSON input path :  sample_people.json
+
+file_contents =
+{"name":"Alex", "city":"Cupertino"}
+{"name":"Bob", "city":"Sunnyvale"}
+{"name":"Betty", "city":"Sunnyvale", "age":30}
+{"name":"Max", "city":"Stanford", "age":30}
+{"name":"Martina", "city":"Stanford", "age":40}
+{"name":"Jane", "city":"Cupertino", "age":19}
+
+df.show():
++----+---------+-------+
+| age|     city|   name|
++----+---------+-------+
+|null|Cupertino|   Alex|
+|null|Sunnyvale|    Bob|
+|  30|Sunnyvale|  Betty|
+|  30| Stanford|    Max|
+|  40| Stanford|Martina|
+|  19|Cupertino|   Jane|
++----+---------+-------+
+
+df.printSchema():
+root
+ |-- age: long (nullable = true)
+ |-- city: string (nullable = true)
+ |-- name: string (nullable = true)
+
+df.select("name").show():
++-------+
+|   name|
++-------+
+|   Alex|
+|    Bob|
+|  Betty|
+|    Max|
+|Martina|
+|   Jane|
++-------+
+
+df.select(df['name'], df['age'] + 1).show():
++-------+---------+
+|   name|(age + 1)|
++-------+---------+
+|   Alex|     null|
+|    Bob|     null|
+|  Betty|       31|
+|    Max|       31|
+|Martina|       41|
+|   Jane|       20|
++-------+---------+
+
+df.filter(df['age'] > 23).show():
++---+---------+-------+
+|age|     city|   name|
++---+---------+-------+
+| 30|Sunnyvale|  Betty|
+| 30| Stanford|    Max|
+| 40| Stanford|Martina|
++---+---------+-------+
+
+df.groupBy("age").count().show():
++----+-----+
+| age|count|
++----+-----+
+|  19|    1|
+|null|    2|
+|  30|    2|
+|  40|    1|
++----+-----+
+
+sql_df.show():
++----+---------+-------+
+| age|     city|   name|
++----+---------+-------+
+|null|Cupertino|   Alex|
+|null|Sunnyvale|    Bob|
+|  30|Sunnyvale|  Betty|
+|  30| Stanford|    Max|
+|  40| Stanford|Martina|
+|  19|Cupertino|   Jane|
++----+---------+-------+
+
+spark.sql("SELECT * FROM global_temp.people").show():
++----+---------+-------+
+| age|     city|   name|
++----+---------+-------+
+|null|Cupertino|   Alex|
+|null|Sunnyvale|    Bob|
+|  30|Sunnyvale|  Betty|
+|  30| Stanford|    Max|
+|  40| Stanford|Martina|
+|  19|Cupertino|   Jane|
++----+---------+-------+
+
+spark.newSession().sql("SELECT * FROM global_temp.people").show():
++----+---------+-------+
+| age|     city|   name|
++----+---------+-------+
+|null|Cupertino|   Alex|
+|null|Sunnyvale|    Bob|
+|  30|Sunnyvale|  Betty|
+|  30| Stanford|    Max|
+|  40| Stanford|Martina|
+|  19|Cupertino|   Jane|
++----+---------+-------+
+

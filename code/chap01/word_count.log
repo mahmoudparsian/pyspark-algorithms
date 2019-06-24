@@ -1,0 +1,49 @@
+$ ./bin/spark-submit zmp/word_count.py
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+
+[
+u'red fox jumped high', 
+u'fox jumped over high fence', 
+u'red fox jumped'
+]
+
+
+[
+u'red', 
+u'fox', 
+u'jumped', 
+u'high', 
+u'fox', 
+u'jumped', 
+u'over', 
+u'high', 
+u'fence', 
+u'red', 
+u'fox', 
+u'jumped'
+]
+
+
+[
+(u'red', 1), 
+(u'fox', 1), 
+(u'jumped', 1), 
+(u'high', 1), 
+(u'fox', 1), 
+(u'jumped', 1), 
+(u'over', 1), 
+(u'high', 1), 
+(u'fence', 1), 
+(u'red', 1), (u'fox', 1), 
+(u'jumped', 1)
+]
+
+
+[
+(u'high', 2), 
+(u'over', 1), 
+(u'fox', 3), 
+(u'red', 2), 
+(u'fence', 1), 
+(u'jumped', 3)
+]

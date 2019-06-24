@@ -1,0 +1,67 @@
+./bin/spark-submit dataframe_creation_from_csv.py name_city_age.csv
+
+spark= <pyspark.sql.session.SparkSession object at 0x106ce1b70>
+
+input path :  name_city_age.csv
+
+file_contents =
+Alex,Ames,40
+Betty,Ames,33
+Alex,Ames,50
+Betty,Stanford,45
+Jeff,Sunnyvale,55
+Bob,Sunnyvale,60
+Terry,Stanford,75
+David,Stanford,90
+Don,Stanford,80
+
+df.count() =  9
+df.collect() =  
+[
+ Row(name='Alex', city='Ames', age=40.0), 
+ Row(name='Betty', city='Ames', age=33.0), 
+ Row(name='Alex', city='Ames', age=50.0), 
+ Row(name='Betty', city='Stanford', age=45.0), 
+ Row(name='Jeff', city='Sunnyvale', age=55.0), 
+ Row(name='Bob', city='Sunnyvale', age=60.0), 
+ Row(name='Terry', city='Stanford', age=75.0), 
+ Row(name='David', city='Stanford', age=90.0), 
+ Row(name='Don', city='Stanford', age=80.0)
+]
+
++-----+---------+----+
+| name|     city| age|
++-----+---------+----+
+| Alex|     Ames|40.0|
+|Betty|     Ames|33.0|
+| Alex|     Ames|50.0|
+|Betty| Stanford|45.0|
+| Jeff|Sunnyvale|55.0|
+|  Bob|Sunnyvale|60.0|
+|Terry| Stanford|75.0|
+|David| Stanford|90.0|
+|  Don| Stanford|80.0|
++-----+---------+----+
+
+root
+ |-- name: string (nullable = true)
+ |-- city: string (nullable = true)
+ |-- age: double (nullable = true)
+
+Method-1:
++---------+-------+
+|     city|average|
++---------+-------+
+|     Ames|   41.0|
+| Stanford|   72.5|
+|Sunnyvale|   57.5|
++---------+-------+
+
+Method-2:
++---------+-------+
+|     city|average|
++---------+-------+
+|     Ames|   41.0|
+| Stanford|   72.5|
+|Sunnyvale|   57.5|
++---------+-------+

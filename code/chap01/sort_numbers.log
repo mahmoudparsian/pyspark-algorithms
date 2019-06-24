@@ -1,0 +1,45 @@
+./bin/spark-submit sort_numbers.py sample_numbers.txt
+
+spark= <pyspark.sql.session.SparkSession object at 0x107cde8d0>
+
+input path :  sample_numbers.txt
+
+file_contents =
+23 24 12 11
+2 8 9 30 40 50 33 31
+2 9 33 40 70 51 52
+10 11 12
+
+records = sample_numbers.txt MapPartitionsRDD[1] at textFile at NativeMethodAccessorImpl.java:0
+records.count =  4
+records.collect() =  
+[
+ '23 24 12 11', 
+ '2 8 9 30 40 50 33 31', 
+ '2 9 33 40 70 51 52', 
+ '10 11 12'
+]
+
+sorted numbers:
+2
+2
+8
+9
+9
+10
+11
+11
+12
+12
+23
+24
+30
+31
+33
+33
+40
+40
+50
+51
+52
+70
