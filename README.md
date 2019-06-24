@@ -2,7 +2,7 @@
 
 * This book is about PySpark (Python API for Spark)
 * Publication date: Fall 2019
-* Author: Mahmoud Parsian (mahmoud.parsian@yahoo.com)
+* Author: Mahmoud Parsian (<mahmoud.parsian@yahoo.com>)
 
 
 ![PySpark Algorithms](./images/pyspark_algorithms.jpg)
@@ -27,10 +27,15 @@ chap09: Logistic Regression
 chap10: Movie Recommendations
 chap11: Graph Algorithms
 chap12: Design Patterns and Monoids
-chap13: FP-Growth
-chap14: LDA
-chap15: Linear Regression
 
 Appendix A: How To Install Spark
 Appendix B: How to Use Lambda Expressions
+````
+
+#### Future chapters:
+
+````
+chap13: FP-Growth
+chap14: LDA
+chap15: Linear Regression
 ````
