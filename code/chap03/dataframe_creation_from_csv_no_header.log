@@ -1,0 +1,82 @@
+./bin/spark-submit dataframe_creation_from_csv_no_header.py kv_no_header.txt
+
+spark= <pyspark.sql.session.SparkSession object at 0x10f623dd0>
+
+input path :  kv_no_header.txt
+
+file_contents =
+alex,200
+alex,300
+bob,100
+bob,400
+bob,500
+mary,700
+mary,200
+mary,300
+jane,300
+adel,200
+adel,400
+adel,600
+adel,800
+
+df =  
+[
+ Row(_c0=u'alex', _c1=200), 
+ Row(_c0=u'alex', _c1=300), 
+ Row(_c0=u'bob', _c1=100), 
+ Row(_c0=u'bob', _c1=400), 
+ Row(_c0=u'bob', _c1=500), 
+ Row(_c0=u'mary', _c1=700), 
+ Row(_c0=u'mary', _c1=200), 
+ Row(_c0=u'mary', _c1=300), 
+ Row(_c0=u'jane', _c1=300), 
+ Row(_c0=u'adel', _c1=200), 
+ Row(_c0=u'adel', _c1=400), 
+ Row(_c0=u'adel', _c1=600), 
+ Row(_c0=u'adel', _c1=800)
+]
+
++----+---+
+| _c0|_c1|
++----+---+
+|alex|200|
+|alex|300|
+| bob|100|
+| bob|400|
+| bob|500|
+|mary|700|
+|mary|200|
+|mary|300|
+|jane|300|
+|adel|200|
+|adel|400|
+|adel|600|
+|adel|800|
++----+---+
+
+root
+ |-- _c0: string (nullable = true)
+ |-- _c1: integer (nullable = true)
+
+
++----+-----+
+|name|value|
++----+-----+
+|alex|  200|
+|alex|  300|
+| bob|  100|
+| bob|  400|
+| bob|  500|
+|mary|  700|
+|mary|  200|
+|mary|  300|
+|jane|  300|
+|adel|  200|
+|adel|  400|
+|adel|  600|
+|adel|  800|
++----+-----+
+
+root
+ |-- name: string (nullable = true)
+ |-- value: integer (nullable = true)

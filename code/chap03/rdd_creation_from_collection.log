@@ -1,0 +1,29 @@
+./bin/spark-submit rdd_creation_from_collection.py
+
+
+spark= <pyspark.sql.session.SparkSession object at 0x10f9045d0>
+
+list_of_strings= ['alex', 'bob', 'jane', 'mary', 'adel']
+rdd1= ParallelCollectionRDD[0] at parallelize at PythonRDD.scala:175
+rdd1.count= 5
+rdd1.collect()= ['alex', 'bob', 'jane', 'mary', 'adel']
+
+list_of_pairs =  [('alex', 1), ('alex', 3), ('alex', 9), ('alex', 10), ('bob', 4), ('bob', 8)]
+rdd2 =  ParallelCollectionRDD[2] at parallelize at PythonRDD.scala:175
+rdd2.count =  6
+rdd2.collect() =  [('alex', 1), ('alex', 3), ('alex', 9), ('alex', 10), ('bob', 4), ('bob', 8)]
+
+rdd2_added =  PythonRDD[8] at RDD at PythonRDD.scala:48
+rdd2_added.count =  2
+rdd2_added.collect() =  [('bob', 12), ('alex', 23)]
+
+rdd2_grouped =  PythonRDD[8] at RDD at PythonRDD.scala:48
+rdd2_grouped.count =  2
+rdd2_grouped.collect() =  [('bob', <pyspark.resultiterable.ResultIterable object at 0x10f92e5d0>), ('alex', <pyspark.resultiterable.ResultIterable object at 0x10fb020d0>)]
+rdd2_grouped.collect() = (as a list) =  [('bob', [4, 8]), ('alex', [1, 3, 9, 10])]
+
+d =  {'key3': 'value3', 'key2': 'value2', 'key1': 'value1'}
+d.items()=  [('key3', 'value3'), ('key2', 'value2'), ('key1', 'value1')]
+rdd_from_dict =  ParallelCollectionRDD[17] at parallelize at PythonRDD.scala:175
+rdd_from_dict.collect() =  [('key3', 'value3'), ('key2', 'value2'), ('key1', 'value1')]
+rdd_from_dict.count =  3

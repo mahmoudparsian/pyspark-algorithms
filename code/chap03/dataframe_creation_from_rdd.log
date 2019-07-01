@@ -1,0 +1,55 @@
+./bin/spark-submit dataframe_creation_from_rdd.py
+
+spark= <pyspark.sql.session.SparkSession object at 0x10e6ffd10>
+
+list_of_tuples =  
+[
+ ('alex', 'Sunnyvale', 25), 
+ ('mary', 'Cupertino', 22), 
+ ('jane', 'Ames', 20), 
+ ('bob', 'Stanford', 26)
+]
+
+rdd =  ParallelCollectionRDD[0] at parallelize at PythonRDD.scala:175
+rdd.count() =  4
+rdd.collect() =  
+[
+ ('alex', 'Sunnyvale', 25), 
+ ('mary', 'Cupertino', 22), 
+ ('jane', 'Ames', 20), 
+ ('bob', 'Stanford', 26)
+]
+
+people =  PythonRDD[2] at RDD at PythonRDD.scala:48
+people.count() =  4
+people.collect() =  
+[
+ Row(age=25, city='Sunnyvale', name='alex'), 
+ Row(age=22, city='Cupertino', name='mary'), 
+ Row(age=20, city='Ames', name='jane'), 
+ Row(age=26, city='Stanford', name='bob')
+]
+
+df =  DataFrame[age: bigint, city: string, name: string]
+df.count() =  4
+df.collect() =  
+[
+ Row(age=25, city=u'Sunnyvale', name=u'alex'), 
+ Row(age=22, city=u'Cupertino', name=u'mary'), 
+ Row(age=20, city=u'Ames', name=u'jane'), 
+ Row(age=26, city=u'Stanford', name=u'bob')
+]
+
++---+---------+----+
+|age|     city|name|
++---+---------+----+
+| 25|Sunnyvale|alex|
+| 22|Cupertino|mary|
+| 20|     Ames|jane|
+| 26| Stanford| bob|
++---+---------+----+
+
+root
+ |-- age: long (nullable = true)
+ |-- city: string (nullable = true)
+ |-- name: string (nullable = true)

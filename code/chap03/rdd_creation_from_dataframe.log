@@ -1,0 +1,56 @@
+./bin/spark-submit rdd_creation_from_dataframe.py
+
+spark= <pyspark.sql.session.SparkSession object at 0x104e4dc50>
+
+list_of_pairs= 
+[
+ ('alex', 1), 
+ ('alex', 5), 
+ ('bob', 2), 
+ ('bob', 40), 
+ ('jane', 60), 
+ ('mary', 700), 
+ ('adel', 800)
+]
+
+df =  DataFrame[_1: string, _2: bigint]
+df.count =  7
+df.collect() =  
+[
+ Row(_1=u'alex', _2=1), 
+ Row(_1=u'alex', _2=5), 
+ Row(_1=u'bob', _2=2), 
+ Row(_1=u'bob', _2=40), 
+ Row(_1=u'jane', _2=60), 
+ Row(_1=u'mary', _2=700), 
+ Row(_1=u'adel', _2=800)
+]
+
++----+---+
+|  _1| _2|
++----+---+
+|alex|  1|
+|alex|  5|
+| bob|  2|
+| bob| 40|
+|jane| 60|
+|mary|700|
+|adel|800|
++----+---+
+
+root
+ |-- _1: string (nullable = true)
+ |-- _2: long (nullable = true)
+
+rdd =  DataFrame[_1: string, _2: bigint]
+rdd.count =  7
+rdd.collect() =  
+[
+ Row(_1=u'alex', _2=1), 
+ Row(_1=u'alex', _2=5), 
+ Row(_1=u'bob', _2=2), 
+ Row(_1=u'bob', _2=40), 
+ Row(_1=u'jane', _2=60), 
+ Row(_1=u'mary', _2=700), 
+ Row(_1=u'adel', _2=800)
+]

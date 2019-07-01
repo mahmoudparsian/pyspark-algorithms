@@ -1,0 +1,48 @@
+$ ls -l sample_dir2
+-rw-r--r--  1 mparsian  dev  54 Nov 11 19:53 file1.txt
+-rw-r--r--  1 mparsian  dev  90 Nov 11 19:53 file2.txt
+-rw-r--r--@ 1 mparsian  dev  31 Nov 11 19:54 file3.csv
+-rw-r--r--  1 mparsian  dev  19 Nov 11 19:55 file4.csv
+
+$ cat file3.csv
+alex,33
+bob,45
+mary,25
+jeff,10
+
+$ cat file4.csv
+amanda,44
+terry,64
+
+./bin/spark-submit dataframe_creation_from_directory.py sample_dir2
+
+spark= <pyspark.sql.session.SparkSession object at 0x10d8a8c90>
+
+input_dir :  sample_dir2
+
+dir_listing =  ['file2.txt', 'file1.txt', 'file3.csv', 'file4.csv']
+
+df =  
+[
+ Row(_c0=u'alex', _c1=33), 
+ Row(_c0=u'bob', _c1=45), 
+ Row(_c0=u'mary', _c1=25), 
+ Row(_c0=u'jeff', _c1=10), 
+ Row(_c0=u'amanda', _c1=44), 
+ Row(_c0=u'terry', _c1=64)
+]
+
++------+---+
+|   _c0|_c1|
++------+---+
+|  alex| 33|
+|   bob| 45|
+|  mary| 25|
+|  jeff| 10|
+|amanda| 44|
+| terry| 64|
++------+---+
+
+root
+ |-- _c0: string (nullable = true)
+ |-- _c1: integer (nullable = true)

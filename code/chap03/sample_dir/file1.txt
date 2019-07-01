@@ -1,0 +1,3 @@
+record 1 of file1
+record 2 of file1
+record 3 of file1

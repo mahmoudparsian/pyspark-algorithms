@@ -1,0 +1,46 @@
+$ ls -l sample_dir/
+total 16
+-rw-r--r--  1 mparsian  dev  54 Nov 11 18:59 file1.txt
+-rw-r--r--  1 mparsian  dev  90 Nov 11 19:00 file2.txt
+
+$ cat file1.txt
+record 1 of file1
+record 2 of file1
+record 3 of file1
+
+$ cat file2.txt
+record 1 of file2
+record 2 of file2
+record 3 of file2
+record 4 of file2
+record 5 of file2
+
+./bin/spark-submit rdd_creation_from_directory.py sample_dir
+
+spark= <pyspark.sql.session.SparkSession object at 0x10718a710>
+
+dir path :  sample_dir
+
+dir_listing =  ['file2.txt', 'file1.txt']
+
+rdd = sample_dir/ MapPartitionsRDD[1] at textFile at NativeMethodAccessorImpl.java:0
+rdd.count =  8
+rdd.collect() =  
+[
+ u'record 1 of file2', 
+ u'record 2 of file2', 
+ u'record 3 of file2', 
+ u'record 4 of file2', 
+ u'record 5 of file2', 
+ u'record 1 of file1', 
+ u'record 2 of file1', 
+ u'record 3 of file1'
+]
+
+filtered = PythonRDD[3] at RDD at PythonRDD.scala:48
+filtered.count =  2
+filtered.collect() =  
+[
+ u'record 3 of file2', 
+ u'record 3 of file1'
+]

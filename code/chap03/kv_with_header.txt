@@ -1,0 +1,14 @@
+name,value
+alex,200
+alex,300
+bob,100
+bob,400
+bob,500
+mary,700
+mary,200
+mary,300
+jane,300
+adel,200
+adel,400
+adel,600
+adel,800

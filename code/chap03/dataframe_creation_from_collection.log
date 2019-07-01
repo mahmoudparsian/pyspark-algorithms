@@ -1,0 +1,118 @@
+./bin/spark-submit dataframe_creation_from_collection.py
+
+spark= <pyspark.sql.session.SparkSession object at 0x1090b4f98>
+
+list_of_pairs= 
+[
+ ('alex', 1), 
+ ('alex', 5), 
+ ('bob', 2), 
+ ('bob', 40), 
+ ('jane', 60), 
+ ('mary', 700), 
+ ('adel', 800)
+]
+
+df1 =  DataFrame[_1: string, _2: bigint]
+df1.count =  7
+df1.collect() =  
+[
+ Row(_1='alex', _2=1), 
+ Row(_1='alex', _2=5), 
+ Row(_1='bob', _2=2), 
+ Row(_1='bob', _2=40), 
+ Row(_1='jane', _2=60), 
+ Row(_1='mary', _2=700), 
+ Row(_1='adel', _2=800)
+]
++----+---+
+|  _1| _2|
++----+---+
+|alex|  1|
+|alex|  5|
+| bob|  2|
+| bob| 40|
+|jane| 60|
+|mary|700|
+|adel|800|
++----+---+
+
+root
+ |-- _1: string (nullable = true)
+ |-- _2: long (nullable = true)
+
+df2 =  DataFrame[name: string, value: bigint]
+df2.count =  7
+df2.collect() =  
+[
+ Row(name='alex', value=1), 
+ Row(name='alex', value=5), 
+ Row(name='bob', value=2), 
+ Row(name='bob', value=40), 
+ Row(name='jane', value=60), 
+ Row(name='mary', value=700), 
+ Row(name='adel', value=800)
+]
++----+-----+
+|name|value|
++----+-----+
+|alex|    1|
+|alex|    5|
+| bob|    2|
+| bob|   40|
+|jane|   60|
+|mary|  700|
+|adel|  800|
++----+-----+
+
+root
+ |-- name: string (nullable = true)
+ |-- value: long (nullable = true)
+
+df3 =  DataFrame[name: string, age: int]
+df3.count =  7
+df3.collect() =  
+[
+ Row(name='alex', age=1), 
+ Row(name='alex', age=5), 
+ Row(name='bob', age=2), 
+ Row(name='bob', age=40), 
+ Row(name='jane', age=60), 
+ Row(name='mary', age=700), 
+ Row(name='adel', age=800)
+]
++----+---+
+|name|age|
++----+---+
+|alex|  1|
+|alex|  5|
+| bob|  2|
+| bob| 40|
+|jane| 60|
+|mary|700|
+|adel|800|
++----+---+
+
+root
+ |-- name: string (nullable = true)
+ |-- age: integer (nullable = true)
+
+df4 =  DataFrame[col1: string, col2: string]
+df4.count =  3
+df4.collect() =  
+[
+ Row(col1='value11', col2='value12'), 
+ Row(col1='value21', col2='value22'), 
+ Row(col1='value31', col2='value32')
+]
++-------+-------+
+|   col1|   col2|
++-------+-------+
+|value11|value12|
+|value21|value22|
+|value31|value32|
++-------+-------+
+
+root
+ |-- col1: string (nullable = true)
+ |-- col2: string (nullable = true)

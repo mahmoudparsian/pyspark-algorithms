@@ -1,0 +1,34 @@
+./bin/spark-submit dataframe_creation_from_dictionary.py
+
+spark= <pyspark.sql.session.SparkSession object at 0x1055c6590>
+
+mydict= 
+{
+ 'A': '1', 
+ 'B': '2', 
+ 'E': '99', 
+ 'D': '8'
+}
+
+df =  DataFrame[key: string, value: string]
+df.count =  4
+df.collect() =  
+[
+ Row(key=u'A', value=u'1'), 
+ Row(key=u'B', value=u'2'), 
+ Row(key=u'E', value=u'99'), 
+ Row(key=u'D', value=u'8')
+]
+
++---+-----+
+|key|value|
++---+-----+
+|  A|    1|
+|  B|    2|
+|  E|   99|
+|  D|    8|
++---+-----+
+
+root
+ |-- key: string (nullable = true)
+ |-- value: string (nullable = true)

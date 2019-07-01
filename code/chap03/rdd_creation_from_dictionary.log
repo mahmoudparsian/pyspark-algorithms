@@ -1,0 +1,22 @@
+./bin/spark-submit rdd_creation_from_dictionary.py
+
+spark= <pyspark.sql.session.SparkSession object at 0x1055c6590>
+
+mydict= 
+{
+ 'A': '1', 
+ 'B': '2', 
+ 'E': '99', 
+ 'D': '8'
+}
+
+
+rdd =  ParallelCollectionRDD[0] at parallelize at PythonRDD.scala:175
+rdd.count =  4
+rdd.collect() =  
+[
+ ('A', '1'), 
+ ('B', '2'), 
+ ('E', '99'), 
+ ('D', '8')
+]

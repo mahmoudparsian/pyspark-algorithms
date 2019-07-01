@@ -1,0 +1,5 @@
+alex,200
+bob,100
+mary,700
+jane,300
+adel,900
