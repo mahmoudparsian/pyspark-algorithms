@@ -27,6 +27,14 @@ https://www.illumina.com,58086
 
 # Programs
 
+Given a set of (key, value) pairs, this chapter 
+presents simple PySpark programs to calculate 
+the following information per key:
+
+* average 
+* median 
+* standard deviation
+
 We want to find out average, median, and the standard 
 deviation of visiting numbers per key (as URL-address). 
 Assume that another requirement is that to drop records, 
