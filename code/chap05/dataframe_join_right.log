@@ -1,0 +1,112 @@
+./bin/spark-submit dataframe_join_right.py
+
+spark= <pyspark.sql.session.SparkSession object at 0x1100a1cd0>
+
+triplets =  
+[
+ ('alex', 'Ames', 20), 
+ ('alex', 'Sunnyvale', 30), 
+ ('alex', 'Cupertino', 40), 
+ ('mary', 'Ames', 35), 
+ ('mary', 'Stanford', 45), 
+ ('mary', 'Campbell', 55), 
+ ('jeff', 'Ames', 60), 
+ ('jeff', 'Sunnyvale', 70), 
+ ('jane', 'Austin', 80)
+]
+
+df.count():  9
+df.collect():  
+[
+ Row(name=u'alex', city=u'Ames', age=20), 
+ Row(name=u'alex', city=u'Sunnyvale', age=30), 
+ Row(name=u'alex', city=u'Cupertino', age=40), 
+ Row(name=u'mary', city=u'Ames', age=35), 
+ Row(name=u'mary', city=u'Stanford', age=45), 
+ Row(name=u'mary', city=u'Campbell', age=55), 
+ Row(name=u'jeff', city=u'Ames', age=60), 
+ Row(name=u'jeff', city=u'Sunnyvale', age=70), 
+ Row(name=u'jane', city=u'Austin', age=80)
+]
+
++----+---------+---+
+|name|     city|age|
++----+---------+---+
+|alex|     Ames| 20|
+|alex|Sunnyvale| 30|
+|alex|Cupertino| 40|
+|mary|     Ames| 35|
+|mary| Stanford| 45|
+|mary| Campbell| 55|
+|jeff|     Ames| 60|
+|jeff|Sunnyvale| 70|
+|jane|   Austin| 80|
++----+---------+---+
+
+root
+ |-- name: string (nullable = true)
+ |-- city: string (nullable = true)
+ |-- age: long (nullable = true)
+
+
+triplets2 =  
+[
+ ('david', 'software'), 
+ ('david', 'business'), 
+ ('terry', 'coffee'), 
+ ('terry', 'hardware'), 
+ ('mary', 'marketing'), 
+ ('mary', 'sales'), 
+ ('jane', 'genomics')
+]
+
+df2.count():  7
+df2.collect():  
+[
+ Row(name=u'david', dept=u'software'), 
+ Row(name=u'david', dept=u'business'), 
+ Row(name=u'terry', dept=u'coffee'), 
+ Row(name=u'terry', dept=u'hardware'), 
+ Row(name=u'mary', dept=u'marketing'), 
+ Row(name=u'mary', dept=u'sales'), 
+ Row(name=u'jane', dept=u'genomics')
+]
+
++-----+---------+
+| name|     dept|
++-----+---------+
+|david| software|
+|david| business|
+|terry|   coffee|
+|terry| hardware|
+| mary|marketing|
+| mary|    sales|
+| jane| genomics|
++-----+---------+
+
+root
+ |-- name: string (nullable = true)
+ |-- dept: string (nullable = true)
+
++----+--------+----+-----+---------+
+|name|    city| age| name|     dept|
++----+--------+----+-----+---------+
+|null|    null|null|david| software|
+|null|    null|null|david| business|
+|null|    null|null|terry|   coffee|
+|null|    null|null|terry| hardware|
+|mary|    Ames|  35| mary|marketing|
+|mary|Stanford|  45| mary|marketing|
+|mary|Campbell|  55| mary|marketing|
+|mary|    Ames|  35| mary|    sales|
+|mary|Stanford|  45| mary|    sales|
+|mary|Campbell|  55| mary|    sales|
+|jane|  Austin|  80| jane| genomics|
++----+--------+----+-----+---------+
+
+root
+ |-- name: string (nullable = true)
+ |-- city: string (nullable = true)
+ |-- age: long (nullable = true)
+ |-- name: string (nullable = true)
+ |-- dept: string (nullable = true)

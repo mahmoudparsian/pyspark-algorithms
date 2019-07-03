@@ -1,0 +1,44 @@
+./bin/spark-submit rdd_transformation_cartesian.py
+
+spark= <pyspark.sql.session.SparkSession object at 0x10fe37dd0>
+
+a =  [('a', 2), ('b', 3), ('c', 4)]
+
+b =  [('p', 50), ('x', 60), ('y', 70), ('z', 80)]
+
+rdd =  ParallelCollectionRDD[0] at parallelize at PythonRDD.scala:175
+rdd.count() =  3
+rdd.collect() =  
+[
+ ('a', 2), 
+ ('b', 3), 
+ ('c', 4)
+]
+
+rdd2 =  ParallelCollectionRDD[2] at parallelize at PythonRDD.scala:175
+rdd2.count() =  4
+rdd2.collect() =  
+[
+ ('p', 50), 
+ ('x', 60), 
+ ('y', 70), 
+ ('z', 80)
+]
+
+cart =  org.apache.spark.api.java.JavaPairRDD@4a2f7b2c
+cart.count() =  12
+cart.collect() =  
+[
+ (('a', 2), ('p', 50)), 
+ (('a', 2), ('x', 60)), 
+ (('a', 2), ('y', 70)), 
+ (('a', 2), ('z', 80)), 
+ (('b', 3), ('p', 50)), 
+ (('b', 3), ('x', 60)), 
+ (('b', 3), ('y', 70)), 
+ (('b', 3), ('z', 80)), 
+ (('c', 4), ('p', 50)), 
+ (('c', 4), ('x', 60)), 
+ (('c', 4), ('y', 70)), 
+ (('c', 4), ('z', 80))
+]

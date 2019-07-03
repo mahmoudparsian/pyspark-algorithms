@@ -1,0 +1,94 @@
+./bin/spark-submit dataframe_filter.py
+
+spark= <pyspark.sql.session.SparkSession object at 0x1043f3dd0>
+
+triplets = 
+[
+ ('alex', 'Ames', 20), 
+ ('alex', 'Sunnyvale', 30), 
+ ('alex', 'Cupertino', 40), 
+ ('mary', 'Ames', 35), 
+ ('mary', 'Stanford', 45), 
+ ('mary', 'Campbell', 55), 
+ ('jeff', 'Ames', 60), 
+ ('jeff', 'Sunnyvale', 70), 
+ ('jane', 'Austin', 80)
+]
+
+df.count():  9
+df.collect():  
+[
+ Row(name=u'alex', city=u'Ames', age=20), 
+ Row(name=u'alex', city=u'Sunnyvale', age=30), 
+ Row(name=u'alex', city=u'Cupertino', age=40), 
+ Row(name=u'mary', city=u'Ames', age=35), 
+ Row(name=u'mary', city=u'Stanford', age=45), 
+ Row(name=u'mary', city=u'Campbell', age=55), 
+ Row(name=u'jeff', city=u'Ames', age=60), 
+ Row(name=u'jeff', city=u'Sunnyvale', age=70), 
+ Row(name=u'jane', city=u'Austin', age=80)
+]
+
++----+---------+---+
+|name|     city|age|
++----+---------+---+
+|alex|     Ames| 20|
+|alex|Sunnyvale| 30|
+|alex|Cupertino| 40|
+|mary|     Ames| 35|
+|mary| Stanford| 45|
+|mary| Campbell| 55|
+|jeff|     Ames| 60|
+|jeff|Sunnyvale| 70|
+|jane|   Austin| 80|
++----+---------+---+
+
+root
+ |-- name: string (nullable = true)
+ |-- city: string (nullable = true)
+ |-- age: long (nullable = true)
+
+df2.count():  4
+df2.collect():  
+[
+ Row(name=u'mary', city=u'Campbell', age=55), 
+ Row(name=u'jeff', city=u'Ames', age=60), 
+ Row(name=u'jeff', city=u'Sunnyvale', age=70), 
+ Row(name=u'jane', city=u'Austin', age=80)
+]
+
++----+---------+---+
+|name|     city|age|
++----+---------+---+
+|mary| Campbell| 55|
+|jeff|     Ames| 60|
+|jeff|Sunnyvale| 70|
+|jane|   Austin| 80|
++----+---------+---+
+
+root
+ |-- name: string (nullable = true)
+ |-- city: string (nullable = true)
+ |-- age: long (nullable = true)
+
+df3.count():  3
+df3.collect():  
+[
+ Row(name=u'alex', city=u'Ames', age=20), 
+ Row(name=u'mary', city=u'Ames', age=35), 
+ Row(name=u'jeff', city=u'Ames', age=60)
+]
+
++----+----+---+
+|name|city|age|
++----+----+---+
+|alex|Ames| 20|
+|mary|Ames| 35|
+|jeff|Ames| 60|
++----+----+---+
+
+root
+ |-- name: string (nullable = true)
+ |-- city: string (nullable = true)
+ |-- age: long (nullable = true)
+

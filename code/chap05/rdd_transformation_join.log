@@ -1,0 +1,55 @@
+./bin/spark-submit rdd_transformation_join.py
+
+spark= <pyspark.sql.session.SparkSession object at 0x1066e3c90>
+
+source_pairs =  
+[
+ (1, 'u'), 
+ (1, 'v'), 
+ (2, 'a'), 
+ (3, 'b'), 
+ (4, 'z1')
+]
+
+source.count():  5
+source.collect():  
+[
+ (1, 'u'), 
+ (1, 'v'), 
+ (2, 'a'), 
+ (3, 'b'), 
+ (4, 'z1')
+]
+
+other_pairs =  
+[
+ (1, 'x'), 
+ (1, 'y'), 
+ (2, 'c'), 
+ (2, 'd'), 
+ (3, 'm'), 
+ (8, 'z2')
+]
+
+other.count():  6
+other.collect():  
+[
+ (1, 'x'), 
+ (1, 'y'), 
+ (2, 'c'), 
+ (2, 'd'), 
+ (3, 'm'), 
+ (8, 'z2')
+]
+
+joined.count():  7
+joined.collect():  
+[
+ (1, ('u', 'x')), 
+ (1, ('u', 'y')), 
+ (1, ('v', 'x')), 
+ (1, ('v', 'y')), 
+ (2, ('a', 'c')), 
+ (2, ('a', 'd')), 
+ (3, ('b', 'm'))
+]

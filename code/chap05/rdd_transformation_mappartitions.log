@@ -1,0 +1,40 @@
+./bin/spark-submit rdd_transformation_mappartitions.py
+
+spark= <pyspark.sql.session.SparkSession object at 0x10e502610>
+
+numbers =  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+rdd =  ParallelCollectionRDD[0] at parallelize at PythonRDD.scala:175
+rdd.count() =  13
+rdd.collect() =  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+rdd.getNumPartitions() =  3
+
+==begin-partition=
+1
+2
+3
+4
+==end-partition=
+
+==begin-partition=
+9
+10
+11
+12
+13
+==end-partition=
+
+==begin-partition=
+5
+6
+7
+8
+==end-partition=
+
+minmax_rdd =  PythonRDD[3] at RDD at PythonRDD.scala:48
+minmax_rdd.count() =  6
+minmax_rdd.collect() =  [1, 4, 5, 8, 9, 13]
+
+minmax_list =  [1, 4, 5, 8, 9, 13]
+min(minmax_list) =  1
+max(minmax_list) =  13

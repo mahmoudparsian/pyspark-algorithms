@@ -1,0 +1,38 @@
+./bin/spark-submit rdd_transformation_takeordered.py
+
+spark =  <pyspark.sql.session.SparkSession object at 0x10611cd90>
+
+sc =  <SparkContext master=local[*] appName=rdd_transformation_takeordered>
+
+numbers =  [8, 10, 1, 2, 9, 3, 4, 5, 6, 7]
+
+top3 =  [1, 2, 3]
+
+bottom3 =  [10, 9, 8]
+
+pairs =  
+[
+ (10, 'z1'), 
+ (1, 'z2'), 
+ (2, 'z3'), 
+ (9, 'z4'), 
+ (3, 'z5'), 
+ (4, 'z6'), 
+ (5, 'z7'), 
+ (6, 'z8'), 
+ (7, 'z9')
+]
+
+top3_pairs =  
+[
+ (1, 'z2'), 
+ (2, 'z3'), 
+ (3, 'z5')
+]
+
+bottom3_pairs =  
+[
+ (10, 'z1'), 
+ (9, 'z4'), 
+ (7, 'z9')
+]

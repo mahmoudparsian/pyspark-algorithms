@@ -1,0 +1,51 @@
+./bin/spark-submit average_by_key_use_reducebykey.py
+
+spark= <pyspark.sql.session.SparkSession object at 0x1067685d0>
+
+list_of_tuples =  [('alex', 'Sunnyvale', 25), ('alex', 'Sunnyvale', 33), ('alex', 'Sunnyvale', 45), ('alex', 'Sunnyvale', 63), ('mary', 'Ames', 22), ('mary', 'Cupertino', 66), ('mary', 'Ames', 20), ('bob', 'Ames', 26)]
+
+rdd =  ParallelCollectionRDD[0] at parallelize at PythonRDD.scala:175
+rdd.count() =  8
+rdd.collect() =  
+[
+ ('alex', 'Sunnyvale', 25), 
+ ('alex', 'Sunnyvale', 33), 
+ ('alex', 'Sunnyvale', 45), 
+ ('alex', 'Sunnyvale', 63), 
+ ('mary', 'Ames', 22), 
+ ('mary', 'Cupertino', 66), 
+ ('mary', 'Ames', 20), 
+ ('bob', 'Ames', 26)
+]
+
+rdd2 =  PythonRDD[2] at RDD at PythonRDD.scala:48
+rdd2.count() =  8
+rdd2.collect() =  
+[
+ ('alex', (25, 1)), 
+ ('alex', (33, 1)), 
+ ('alex', (45, 1)), 
+ ('alex', (63, 1)), 
+ ('mary', (22, 1)), 
+ ('mary', (66, 1)), 
+ ('mary', (20, 1)), 
+ ('bob', (26, 1))
+]
+
+sum_count =  PythonRDD[8] at RDD at PythonRDD.scala:48
+sum_count.count() =  3
+sum_count.collect() =  
+[
+ ('bob', (26, 1)), 
+ ('alex', (166, 4)), 
+ ('mary', (108, 3))
+]
+
+averages =  PythonRDD[10] at RDD at PythonRDD.scala:48
+averages.count() =  3
+averages.collect() =  
+[
+ ('bob', 26.0), 
+ ('alex', 41.5), 
+ ('mary', 36.0)
+]

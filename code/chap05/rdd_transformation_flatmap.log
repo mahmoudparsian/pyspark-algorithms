@@ -1,0 +1,35 @@
+./bin/spark-submit rdd_transformation_flatmap.py
+
+spark= <pyspark.sql.session.SparkSession object at 0x10649fdd0>
+
+list_of_strings =  
+[
+ 'of', 
+ 'a fox jumped', 
+ 'fox jumped of fence', 
+ 'a foxy fox jumped high'
+]
+rdd =  ParallelCollectionRDD[0] at parallelize at PythonRDD.scala:175
+rdd.count() =  4
+rdd.collect() =  
+[
+ 'of', 
+ 'a fox jumped', 
+ 'fox jumped of fence', 
+ 'a foxy fox jumped high'
+]
+
+rdd2 =  PythonRDD[2] at RDD at PythonRDD.scala:48
+rdd2.count() =  9
+rdd2.collect() =  
+[
+ 'fox', 
+ 'jumped', 
+ 'fox', 
+ 'jumped', 
+ 'fence', 
+ 'foxy', 
+ 'fox', 
+ 'jumped', 
+ 'high'
+]

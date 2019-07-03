@@ -1,0 +1,86 @@
+./bin/spark-submit rdd_transformation_sortby.py
+
+spark= <pyspark.sql.session.SparkSession object at 0x1018f7510>
+
+pairs = 
+[
+ (10, 'z1'), 
+ (1,  'z2'), 
+ (2,  'z3'), 
+ (9,  'z4'), 
+ (3,  'z5'), 
+ (4,  'z6'), 
+ (5,  'z7'), 
+ (6,  'z8'), 
+ (7,  'z9')
+]
+
+rdd.count():  9
+rdd.collect():  
+[
+ (10, 'z1'), 
+ (1,  'z2'), 
+ (2,  'z3'), 
+ (9,  'z4'), 
+ (3,  'z5'), 
+ (4,  'z6'), 
+ (5,  'z7'), 
+ (6,  'z8'), 
+ (7,  'z9')
+]
+
+sorted_by_key_ascending.count():  9
+sorted_by_key_ascending.collect():  
+[
+ (1,  'z2'), 
+ (2,  'z3'), 
+ (3,  'z5'), 
+ (4,  'z6'), 
+ (5,  'z7'), 
+ (6,  'z8'), 
+ (7,  'z9'), 
+ (9,  'z4'), 
+ (10, 'z1')
+]
+
+sorted_by_key_descending.count():  9
+sorted_by_key_descending.collect():  
+[
+ (10, 'z1'), 
+ (9,  'z4'), 
+ (7,  'z9'), 
+ (6,  'z8'), 
+ (5,  'z7'), 
+ (4,  'z6'), 
+ (3,  'z5'), 
+ (2,  'z3'), 
+ (1,  'z2')
+]
+
+sorted_by_value_ascending.count():  9
+sorted_by_value_ascending.collect():  
+[
+ (10, 'z1'), 
+ (1,  'z2'), 
+ (2,  'z3'), 
+ (9,  'z4'), 
+ (3,  'z5'), 
+ (4,  'z6'), 
+ (5,  'z7'), 
+ (6,  'z8'), 
+ (7,  'z9')
+]
+
+sorted_by_value_descending.count():  9
+sorted_by_value_descending.collect():  
+[
+ (7,  'z9'), 
+ (6,  'z8'), 
+ (5,  'z7'), 
+ (4,  'z6'), 
+ (3,  'z5'), 
+ (9,  'z4'), 
+ (2,  'z3'), 
+ (1,  'z2'), 
+ (10, 'z1')
+]

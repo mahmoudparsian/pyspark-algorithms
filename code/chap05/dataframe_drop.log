@@ -1,0 +1,67 @@
+./bin/spark-submit dataframe_drop.py
+
+spark= <pyspark.sql.session.SparkSession object at 0x103ed9dd0>
+
+triplets =  
+[
+ ('alex', 'Ames', 20), 
+ ('alex', 'Sunnyvale', 30), 
+ ('alex', 'Cupertino', 40), 
+ ('mary', 'Ames', 35), 
+ ('mary', 'Stanford', 45), 
+ ('mary', 'Campbell', 55), 
+ ('jeff', 'Ames', 60), 
+ ('jeff', 'Sunnyvale', 70), 
+ ('jane', 'Austin', 80)
+]
+
+df.count():  9
+df.collect():  
+[
+ Row(name=u'alex', city=u'Ames', age=20), 
+ Row(name=u'alex', city=u'Sunnyvale', age=30), 
+ Row(name=u'alex', city=u'Cupertino', age=40), 
+ Row(name=u'mary', city=u'Ames', age=35), 
+ Row(name=u'mary', city=u'Stanford', age=45), 
+ Row(name=u'mary', city=u'Campbell', age=55), 
+ Row(name=u'jeff', city=u'Ames', age=60), 
+ Row(name=u'jeff', city=u'Sunnyvale', age=70), 
+ Row(name=u'jane', city=u'Austin', age=80)
+]
+
++----+---------+---+
+|name|     city|age|
++----+---------+---+
+|alex|     Ames| 20|
+|alex|Sunnyvale| 30|
+|alex|Cupertino| 40|
+|mary|     Ames| 35|
+|mary| Stanford| 45|
+|mary| Campbell| 55|
+|jeff|     Ames| 60|
+|jeff|Sunnyvale| 70|
+|jane|   Austin| 80|
++----+---------+---+
+
+root
+ |-- name: string (nullable = true)
+ |-- city: string (nullable = true)
+ |-- age: long (nullable = true)
+
++----+---+
+|name|age|
++----+---+
+|alex| 20|
+|alex| 30|
+|alex| 40|
+|mary| 35|
+|mary| 45|
+|mary| 55|
+|jeff| 60|
+|jeff| 70|
+|jane| 80|
++----+---+
+
+root
+ |-- name: string (nullable = true)
+ |-- age: long (nullable = true)
