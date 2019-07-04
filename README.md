@@ -1,19 +1,20 @@
 # PySpark Algorithms Book
 
 * This book is about PySpark (Python API for Spark)
+* Introductory book on how to solve data problems using PySpark
 * Publication date: Fall 2019
 * Author: Mahmoud Parsian (<mahmoud.parsian@yahoo.com>)
 
 
 ![PySpark Algorithms](./images/pyspark_algorithms.jpg)
 
-### Software
+## Software
 
 * Spark 2.4.3
 * Python 3.7.2
 * Java 8
 
-### Table of Contents
+## Table of Contents
 ````
 chap01: Introduction to PySpark
 chap02: Hello World
@@ -32,7 +33,7 @@ Appendix A: How To Install Spark
 Appendix B: How to Use Lambda Expressions
 ````
 
-#### Future chapters:
+## Future chapters:
 
 ````
 chap13: FP-Growth
