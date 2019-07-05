@@ -1,0 +1,63 @@
+# define PySpark program
+export PROG="/pyspark_book/code/chap12/average_monoid_use_reducebykey.py"
+# define your input path
+export INPUT="/pyspark_book/code/chap12/sample_input.txt"
+# define your Spark home directory
+export SPARK_HOME="/pyspark_book/spark-2.4.3"
+# run the program
+$SPARK_HOME/bin/spark-submit $PROG $INPUT
+input_path: /pyspark_book/code/chap12/sample_input.txt
+
+records.count():  12
+
+records.collect():  
+[
+ u'a,2', 
+ u'a,3', 
+ u'a,4', 
+ u'a,5', 
+ u'a,7', 
+ u'b,4', 
+ u'b,5', 
+ u'b,6', 
+ u'c,3', 
+ u'c,4', 
+ u'c,5', 
+ u'c,6'
+]
+
+sum_and_freq.count():  12
+
+sum_and_freq.collect():  
+[
+ (u'a', (2, 1)), 
+ (u'a', (3, 1)), 
+ (u'a', (4, 1)), 
+ (u'a', (5, 1)), 
+ (u'a', (7, 1)), 
+ (u'b', (4, 1)), 
+ (u'b', (5, 1)), 
+ (u'b', (6, 1)), 
+ (u'c', (3, 1)), 
+ (u'c', (4, 1)), 
+ (u'c', (5, 1)), 
+ (u'c', (6, 1))
+]
+
+sum_count.count():  3
+
+sum_count.collect():  
+[
+ (u'a', (21, 5)), 
+ (u'c', (18, 4)), 
+ (u'b', (15, 3))
+]
+
+averages.count():  3
+
+averages.collect():  
+[
+ (u'a', 4.2), 
+ (u'c', 4.5), 
+ (u'b', 5.0)
+]

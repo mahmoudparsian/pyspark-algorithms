@@ -1,0 +1,67 @@
+$ cat sample_dna_seq.txt
+ATCGGGATCCGGG
+ATTCCGGGATTCCCC
+ATGGCCCCCGGGATCGGG
+CGGTATCCGGGGAAAAA
+aaattCCGGAACCGGGGGTTT
+CCTTTTATCGGGCAAATTTTCCCGG
+attttcccccggaaaAAATTTCCGGG
+ACTGACTAGCTAGCTAACTG
+GCATCGTAGCTAGCTACGAT
+AATTCCCGCATCGATCGTACGTACGTAG
+ATCGATCGATCGTACGATCG
+
+# define PySpark program
+export PROG="/pyspark_book/code/chap12/inmapper_combiner_local_aggregation.py"
+# define your input path
+export INPUT="/pyspark_book/code/chap12/sample_dna_seq.txt"
+# define your Spark home directory
+export SPARK_HOME="/pyspark_book/spark-2.4.3"
+# run the program
+$SPARK_HOME/bin/spark-submit $PROG $INPUT
+
+input_path: /pyspark_book/code/chap12/sample_dna_seq.txt
+
+records.count():  11
+records.collect():  
+[
+ u'ATCGGGATCCGGG', 
+ u'ATTCCGGGATTCCCC', 
+ u'ATGGCCCCCGGGATCGGG', 
+ u'CGGTATCCGGGGAAAAA', 
+ u'aaattCCGGAACCGGGGGTTT', 
+ u'CCTTTTATCGGGCAAATTTTCCCGG', 
+ u'attttcccccggaaaAAATTTCCGGG', 
+ u'ACTGACTAGCTAGCTAACTG', 
+ u'GCATCGTAGCTAGCTACGAT', 
+ u'AATTCCCGCATCGATCGTACGTACGTAG', 
+ u'ATCGATCGATCGTACGATCG'
+]
+
+records.getNumPartitions():  2
+
+pairs.count():  44
+pairs.collect():  
+[
+ (u'A', 2), (u'C', 3), (u'T', 2), (u'G', 6), 
+ (u'A', 2), (u'C', 6), (u'T', 4), (u'G', 3), 
+ (u'A', 2), (u'C', 6), (u'T', 2), (u'G', 8), 
+ (u'A', 6), (u'C', 3), (u'T', 2), (u'G', 6), 
+ (u'A', 5), (u'C', 4), (u'T', 5), (u'G', 7), 
+ (u'A', 4), (u'C', 7), (u'T', 9), (u'G', 5), 
+ (u'A', 7), (u'C', 7), (u'T', 7), (u'G', 5), 
+ (u'A', 6), (u'C', 5), (u'T', 5), (u'G', 4), 
+ (u'A', 5), (u'C', 5), (u'T', 5), (u'G', 5), 
+ (u'A', 7), (u'C', 8), (u'T', 7), (u'G', 6), 
+ (u'A', 5), (u'C', 5), (u'T', 5), (u'G', 5)
+]
+
+frequencies.count():  4
+
+frequencies.collect():  
+[
+ (u'A', 51), 
+ (u'C', 59), 
+ (u'G', 60), 
+ (u'T', 53)
+]

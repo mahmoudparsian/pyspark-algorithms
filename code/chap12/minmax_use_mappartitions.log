@@ -1,0 +1,38 @@
+./bin/spark-submit minmax_use_mappartitions.py  sample_numbers.txt
+
+spark= <pyspark.sql.session.SparkSession object at 0x10c5dc610>
+
+input_path= sample_numbers.txt
+
+rdd= sample_numbers.txt MapPartitionsRDD[1] at textFile at NativeMethodAccessorImpl.java:0
+rdd.count= 11
+rdd.collect()= 
+[
+ u'23,24,22,44,66,77,44,44,555,666', 
+ u'12,4,555,66,67,68,57,55,56,45,45,45,66,77', 
+ u'34,35,36,97300,78,79', 
+ u'120,44,444,445,345,345,555', 
+ u'11,33,34,35,36,37,47,7777,8888,6666,44,55', 
+ u'10,11,44,66,77,78,79,80,90,98,99,100,102,103,104,105', 
+ u'6,7,8,9,10', 
+ u'8,9,10,12,12', 
+ u'7777', 
+ u'222,333,444,555,666,111,112,5,113,114', 
+ u'5555,4444,24'
+]
+
+rdd.getNumPartitions()= 2
+
+min_max_count= PythonRDD[3] at RDD at PythonRDD.scala:48
+
+type(partition_iterator)= <type 'generator'>
+first_record= 23,24,22,44,66,77,44,44,555,666
+
+type(partition_iterator)= <type 'generator'>
+first_record= 10,11,44,66,77,78,79,80,90,98,99,100,102,103,104,105
+
+min_max_count.count= 2
+
+min_max_count.collect()= [(4, 97300, 49), (5, 7777, 40)]
+
+final: (min, max, count)= ( 4 ,  97300 ,  89 )

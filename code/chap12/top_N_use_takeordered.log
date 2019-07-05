@@ -1,0 +1,46 @@
+./bin/spark-submit top_N_use_takeordered.py 3
+
+spark= <pyspark.sql.session.SparkSession object at 0x1106c0610>
+
+N :  3
+
+list_of_key_value =  
+[
+ ('a', 1), ('a', 7), ('a', 2), ('a', 3), 
+ ('b', 2), ('b', 4), 
+ ('c', 10), ('c', 50), ('c', 60), ('c', 70), 
+ ('d', 5), ('d', 15), ('d', 25), 
+ ('e', 1), ('e', 2), 
+ ('f', 9), ('f', 2), 
+ ('g', 22)
+]
+
+rdd= ParallelCollectionRDD[0] at parallelize at PythonRDD.scala:175
+rdd.count= 18
+rdd.collect()= 
+[
+ ('a', 1), ('a', 7), ('a', 2), ('a', 3), 
+ ('b', 2), ('b', 4), 
+ ('c', 10), ('c', 50), ('c', 60), ('c', 70), 
+ ('d', 5), ('d', 15), ('d', 25), 
+ ('e', 1), ('e', 2), 
+ ('f', 9), ('f', 2), 
+ ('g', 22)
+]
+
+combined= PythonRDD[6] at RDD at PythonRDD.scala:48
+combined.count= 7
+combined.collect()= 
+[
+ ('a', 13), 
+ ('c', 190), 
+ ('b', 6), 
+ ('e', 3), 
+ ('d', 45), 
+ ('g', 22), 
+ ('f', 11)
+]
+
+topN =  [('c', 190), ('d', 45), ('g', 22)]
+
+bottomN =  [('e', 3), ('b', 6), ('f', 11)]

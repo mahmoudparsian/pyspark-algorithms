@@ -1,0 +1,85 @@
+./bin/spark-submit top_N_use_mappartitions.py 3
+
+spark= <pyspark.sql.session.SparkSession object at 0x109277208>
+
+N :  3
+
+list_of_key_value =  
+[
+ ('a', 1), ('a', 7), ('a', 2), ('a', 3), 
+ ('b', 2), ('b', 4), 
+ ('c', 10), ('c', 50), ('c', 60), ('c', 70), 
+ ('d', 5), ('d', 15), ('d', 25), 
+ ('e', 1), ('e', 2), 
+ ('f', 9), ('f', 2), 
+ ('g', 22), ('g', 12), 
+ ('h', 3), ('h', 4), ('h', 5), ('h', 6), 
+ ('i', 30), ('i', 40), 
+ ('j', 50), ('j', 60), 
+ ('k', 30)
+]
+
+rdd= ParallelCollectionRDD[0] at parallelize at PythonRDD.scala:175
+rdd.count= 28
+rdd.collect()= 
+[
+ ('a', 1), ('a', 7), ('a', 2), ('a', 3), 
+ ('b', 2), ('b', 4), 
+ ('c', 10), ('c', 50), ('c', 60), ('c', 70), 
+ ('d', 5), ('d', 15), ('d', 25), 
+ ('e', 1), ('e', 2), 
+ ('f', 9), ('f', 2), 
+ ('g', 22), ('g', 12), 
+ ('h', 3), ('h', 4), ('h', 5), ('h', 6), 
+ ('i', 30), ('i', 40), 
+ ('j', 50), ('j', 60), 
+ ('k', 30)
+]
+
+combined= CoalescedRDD[7] at coalesce at NativeMethodAccessorImpl.java:0
+combined.count= 11
+combined.collect()= 
+[
+ ('g', 34), 
+ ('i', 70), 
+ ('a', 13), 
+ ('e', 3), 
+ ('j', 110), 
+ ('k', 30), 
+ ('b', 6), 
+ ('c', 190), 
+ ('d', 45), 
+ ('h', 18), 
+ ('f', 11)
+]
+
+===begin-partition===
+('g', 34)
+('i', 70)
+('a', 13)
+('e', 3)
+('j', 110)
+('k', 30)
+===end-partition===
+
+===begin-partition===
+('b', 6)
+('c', 190)
+('d', 45)
+('h', 18)
+('f', 11)
+===end-partition===
+
+topN =  PythonRDD[10] at RDD at PythonRDD.scala:48
+topN.count= 6
+topN.collect()= 
+[
+ ('g', 34), 
+ ('i', 70), 
+ ('j', 110), 
+ ('h', 18), 
+ ('d', 45), 
+ ('c', 190)
+]
+
+final_topN =  [('i', 70), ('j', 110), ('c', 190)]

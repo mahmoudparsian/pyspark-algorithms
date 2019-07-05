@@ -1,0 +1,36 @@
+export SPARK_HOME="/pyspark_book/spark-2.4.3"
+export SPARK_PROG="/pyspark_book/code/chap11/graph_builder.py"
+export GRAPH_FRAMES="graphframes:graphframes:0.5.0-spark2.1-s_2.11"
+#
+# run the PySpark program:
+$SPARK_HOME/bin/spark-submit --packages $GRAPH_FRAMES $SPARK_PROG 
+
++---+-------+---+
+| id|   name|age|
++---+-------+---+
+|  a|  Alice| 34|
+|  b|    Bob| 36|
+|  c|Charlie| 30|
++---+-------+---+
+
++---+---+------------+
+|src|dst|relationship|
++---+---+------------+
+|  a|  b|      friend|
+|  b|  c|      follow|
+|  c|  b|      follow|
++---+---+------------+
+
+graph= GraphFrame(
+   v:[id: string, name: string ... 1 more field], 
+   e:[src: string, dst: string ... 1 more field]
+)
+   
++---+--------+
+| id|inDegree|
++---+--------+
+|  c|       1|
+|  b|       2|
++---+--------+
+
+count_follow= 2

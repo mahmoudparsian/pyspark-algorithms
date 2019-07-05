@@ -1,0 +1,74 @@
+export SPARK_HOME="/pyspark_book/spark-2.4.3"
+export SPARK_PROG="/pyspark_book/code/chap11/connected_component_example.py"
+export GRAPH_FRAMES="graphframes:graphframes:0.5.0-spark2.1-s_2.11"
+#
+# run the PySpark program:
+$SPARK_HOME/bin/spark-submit --packages $GRAPH_FRAMES $SPARK_PROG 
+
+Ivy Default Cache set to: /Users/mparsian/.ivy2/cache
+The jars for the packages stored in: /Users/mparsian/.ivy2/jars
+:: loading settings :: url = jar:file:/Users/mparsian/spark-2.4.3/jars/ivy-2.4.0.jar!/org/apache/ivy/core/settings/ivysettings.xml
+graphframes#graphframes added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent;1.0
+	confs: [default]
+	found graphframes#graphframes;0.5.0-spark2.1-s_2.11 in spark-packages
+	found com.typesafe.scala-logging#scala-logging-api_2.11;2.1.2 in local-m2-cache
+	found com.typesafe.scala-logging#scala-logging-slf4j_2.11;2.1.2 in local-m2-cache
+	found org.scala-lang#scala-reflect;2.11.0 in local-m2-cache
+	found org.slf4j#slf4j-api;1.7.7 in local-m2-cache
+:: resolution report :: resolve 276ms :: artifacts dl 9ms
+	:: modules in use:
+	com.typesafe.scala-logging#scala-logging-api_2.11;2.1.2 from local-m2-cache in [default]
+	com.typesafe.scala-logging#scala-logging-slf4j_2.11;2.1.2 from local-m2-cache in [default]
+	graphframes#graphframes;0.5.0-spark2.1-s_2.11 from spark-packages in [default]
+	org.scala-lang#scala-reflect;2.11.0 from local-m2-cache in [default]
+	org.slf4j#slf4j-api;1.7.7 from local-m2-cache in [default]
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   5   |   0   |   0   |   0   ||   5   |   0   |
+	---------------------------------------------------------------------
+:: retrieving :: org.apache.spark#spark-submit-parent
+	confs: [default]
+	0 artifacts copied, 5 already retrieved (0kB/10ms)
+
++---+-------+---+
+| id|   name|age|
++---+-------+---+
+|  a|  Alice| 30|
+|  b|    Bob| 31|
+|  c|Charlie| 32|
+|  d|  David| 23|
+|  e|   Emma| 24|
+|  f|  Frank| 26|
+|  g| George| 27|
++---+-------+---+
+
++---+---+------------+
+|src|dst|relationship|
++---+---+------------+
+|  a|  b|      follow|
+|  b|  c|      follow|
+|  d|  e|      follow|
+|  e|  f|      follow|
+|  f|  g|      follow|
+|  g|  d|      follow|
++---+---+------------+
+
+graph= GraphFrame(
+  v:[id: string, name: string ... 1 more field], 
+  e:[src: string, dst: string ... 1 more field]
+)
+
++---+-------------+
+| id|    component|
++---+-------------+
+|  d| 146028888064|
+|  e| 146028888064|
+|  g| 146028888064|
+|  f| 146028888064|
+|  c|1047972020224|
+|  a|1047972020224|
+|  b|1047972020224|
++---+-------------+

@@ -1,0 +1,125 @@
+$ cat sample_dna_seq.txt
+ATCGGGATCCGGG
+ATTCCGGGATTCCCC
+ATGGCCCCCGGGATCGGG
+CGGTATCCGGGGAAAAA
+aaattCCGGAACCGGGGGTTT
+CCTTTTATCGGGCAAATTTTCCCGG
+attttcccccggaaaAAATTTCCGGG
+ACTGACTAGCTAGCTAACTG
+GCATCGTAGCTAGCTACGAT
+AATTCCCGCATCGATCGTACGTACGTAG
+ATCGATCGATCGTACGATCG
+
+# define PySpark program
+export PROG="/pyspark_book/code/chap12/inmapper_combiner_use_mappartitions.py"
+# define your input path
+export INPUT="/pyspark_book/code/chap12/sample_dna_seq.txt"
+# define your Spark home directory
+export SPARK_HOME="/pyspark_book/spark-2.4.3"
+# run the program
+$SPARK_HOME/bin/spark-submit $PROG $INPUT
+input_path: /pyspark_book/code/chap12/sample_dna_seq.txt
+
+records.count():  11
+
+records.collect():  
+[
+ u'ATCGGGATCCGGG', 
+ u'ATTCCGGGATTCCCC', 
+ u'ATGGCCCCCGGGATCGGG', 
+ u'CGGTATCCGGGGAAAAA', 
+ u'aaattCCGGAACCGGGGGTTT', 
+ u'CCTTTTATCGGGCAAATTTTCCCGG', 
+ u'attttcccccggaaaAAATTTCCGGG', 
+ u'ACTGACTAGCTAGCTAACTG', 
+ u'GCATCGTAGCTAGCTACGAT', 
+ u'AATTCCCGCATCGATCGTACGTACGTAG', 
+ u'ATCGATCGATCGTACGATCG'
+]
+
+records.getNumPartitions():  2
+
+partition_iterator= <generator object load_stream at 0x10e7b01e0>
+map= defaultdict(<type 'int'>, {
+ u'A': 28, 
+ u'C': 36, 
+ u'T': 31, 
+ u'G': 40
+})
+
+pairs= 
+[
+ (u'A', 28), 
+ (u'C', 36), 
+ (u'T', 31), 
+ (u'G', 40)
+]
+
+partition_iterator= <generator object load_stream at 0x10e7b01e0>
+map= defaultdict(<type 'int'>, {
+ u'A': 23, 
+ u'C': 23, 
+ u'T': 22, 
+ u'G': 20
+})
+
+pairs= 
+[
+ (u'A', 23), 
+ (u'C', 23), 
+ (u'T', 22), 
+ (u'G', 20)
+]
+pairs.count():  8
+
+partition_iterator= <generator object load_stream at 0x10e787e60>
+
+map= defaultdict(<type 'int'>, {
+ u'A': 28, 
+ u'C': 36, 
+ u'T': 31, 
+ u'G': 40
+}
+map= defaultdict(<type 'int'>, {
+ u'A': 23, 
+ u'C': 23, 
+ u'T': 22, 
+ u'G': 20
+}
+
+pairs.collect():  
+[
+ (u'A', 28), 
+ (u'C', 36), 
+ (u'T', 31), 
+ (u'G', 40), 
+ (u'A', 23), 
+ (u'C', 23), 
+ (u'T', 22), 
+ (u'G', 20)
+]
+
+partition_iterator= <generator object load_stream at 0x10e7ac230>
+
+map= defaultdict(<type 'int'>, 
+{map=
+u'A': 28, 
+u'C': 36,  
+u'T': 31,
+u'G': 40,
+u'A': 23, 
+u'C': 23,  
+u'T': 22,
+u'G': 20
+}
+
+frequencies.count():  4
+
+frequencies.collect():  
+[
+ (u'A', 51), 
+ (u'C', 59), 
+ (u'G', 60), 
+ (u'T', 53)
+]

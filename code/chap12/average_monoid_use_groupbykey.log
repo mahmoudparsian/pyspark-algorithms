@@ -1,0 +1,56 @@
+# define PySpark program
+export PROG="/pyspark_book/code/chap12/average_monoid_use_groupbykey.py"
+# define your input path
+export INPUT="/pyspark_book/code/chap12/sample_input.txt"
+# define your Spark home directory
+export SPARK_HOME="/pyspark_book/spark-2.4.3"
+# run the program
+$SPARK_HOME/bin/spark-submit $PROG $INPUT
+
+input_path: sample_input.txt
+
+records :  sample_input.txt MapPartitionsRDD[1] at textFile at NativeMethodAccessorImpl.java:0
+
+records.count():  12
+
+records.collect():  
+[
+ u'a,2', 
+ u'a,3', 
+ u'a,4', 
+ u'a,5', 
+ u'a,7', 
+ u'b,4', 
+ u'b,5', 
+ u'b,6', 
+ u'c,3', 
+ u'c,4', 
+ u'c,5', 
+ u'c,6'
+]
+
+grouped_by_key :  PythonRDD[9] at RDD at PythonRDD.scala:48
+
+grouped_by_key.count():  3
+
+grouped_by_key.collect():  
+[
+ (u'a', <pyspark.resultiterable.ResultIterable object at 0x102818d10>), 
+ (u'c', <pyspark.resultiterable.ResultIterable object at 0x102818e10>), 
+ (u'b', <pyspark.resultiterable.ResultIterable object at 0x1026d9410>)
+]
+
+grouped_by_key.mapValues(lambda values : list(values)).collect():  
+[
+ (u'a', [2, 3, 4, 5, 7]), 
+ (u'c', [3, 4, 5, 6]), 
+ (u'b', [4, 5, 6])
+]
+
+averages.count():  3
+averages.collect():  
+[
+ (u'a', 4.2), 
+ (u'c', 4.5), 
+ (u'b', 5.0)
+]
