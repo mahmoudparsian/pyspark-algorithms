@@ -1,0 +1,37 @@
+export SPARK_HOME="/pyspark_book/spark-2.4.3"
+export SPARK_PROG="/pyspark_book/code/chap08/datasource_mongodb_reader.py"
+export MONGODB_COLLECTION_URI="mongodb://127.0.0.1/test.coll44"
+export JAR1="/pyspark_book/code/jars/mongo-java-driver-3.8.2.jar"
+export JAR2="/pyspark_book/code/jars/mongo-spark-connector_2.11-2.2.5.jar"
+#
+# run the PySpark program:
+$SPARK_HOME/bin/spark-submit --jars "${JAR1},${JAR2}" $SPARK_PROG ${MONGODB_COLLECTION_URI}
+
+mongodb_collection_uri :  mongodb://127.0.0.1/test.coll44
+
+spark= <pyspark.sql.session.SparkSession object at 0x103305790>
+
+df.count() =  3
+df.collect() =  
+[
+ Row(_id=Row(oid=u'5bda0d86505cc0ce70a4eed4'), by=u'tutorials point', description=u'database', likes=100, title=u'MongoDB', url=u'http://www.tutorialspoint.com/mongodb/'), 
+ Row(_id=Row(oid=u'5bda0d86505cc0ce70a4eed5'), by=u'tutorials point zamanda', description=u'database22', likes=200, title=u'MongoDB', url=u'http://www.tutorialspoint.com/mongodb/test222'), 
+ Row(_id=Row(oid=u'5bda0d86505cc0ce70a4eed6'), by=u'illumina', description=u'database44', likes=3000, title=u'Genomics', url=u'http://www.illumina.com/')
+]
+
++--------------------------+-----------------------+-----------+-----+--------+---------------------------------------------+
+|_id                       |by                     |description|likes|title   |url                                          |
++--------------------------+-----------------------+-----------+-----+--------+---------------------------------------------+
+|[5bda0d86505cc0ce70a4eed4]|tutorials point        |database   |100  |MongoDB |http://www.tutorialspoint.com/mongodb/       |
+|[5bda0d86505cc0ce70a4eed5]|tutorials point zamanda|database22 |200  |MongoDB |http://www.tutorialspoint.com/mongodb/test222|
+|[5bda0d86505cc0ce70a4eed6]|illumina               |database44 |3000 |Genomics|http://www.illumina.com/                     |
++--------------------------+-----------------------+-----------+-----+--------+---------------------------------------------+
+
+root
+ |-- _id: struct (nullable = true)
+ |    |-- oid: string (nullable = true)
+ |-- by: string (nullable = true)
+ |-- description: string (nullable = true)
+ |-- likes: integer (nullable = true)
+ |-- title: string (nullable = true)
+ |-- url: string (nullable = true)

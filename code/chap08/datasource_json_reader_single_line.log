@@ -1,0 +1,40 @@
+./bin/spark-submit datasource_json_reader_single_line.py sample_single_line.json
+
+spark= <pyspark.sql.session.SparkSession object at 0x1052fdcd0>
+
+input path :  sample_single_line.json
+
+file_contents =
+{"name":"alex","id":200,"scores":[1,2],"dict": {"key1": "value11", "key2": "value12"}}
+{"name":"bob","id":300,"scores":[1,2,4,6],"dict": {"key1": "value16"}}
+{"name":"jane","id":400,"scores":[2,4,6],"dict": {"key4": "value41"}}
+{"name":"mary","id":500,"scores":[5,9],"dict": {"key4": "value77", "key3": "value88"}}
+
+df.count() =  4
+df.collect() =  
+[
+ Row(dict=Row(key1=u'value11', key2=u'value12', key3=None, key4=None), id=200, name=u'alex', scores=[1, 2]), 
+ Row(dict=Row(key1=u'value16', key2=None, key3=None, key4=None), id=300, name=u'bob', scores=[1, 2, 4, 6]), 
+ Row(dict=Row(key1=None, key2=None, key3=None, key4=u'value41'), id=400, name=u'jane', scores=[2, 4, 6]), 
+ Row(dict=Row(key1=None, key2=None, key3=u'value88', key4=u'value77'), id=500, name=u'mary', scores=[5, 9])
+]
+
++---------------------+---+----+------------+
+|dict                 |id |name|scores      |
++---------------------+---+----+------------+
+|[value11, value12,,] |200|alex|[1, 2]      |
+|[value16,,,]         |300|bob |[1, 2, 4, 6]|
+|[,,, value41]        |400|jane|[2, 4, 6]   |
+|[,, value88, value77]|500|mary|[5, 9]      |
++---------------------+---+----+------------+
+
+root
+ |-- dict: struct (nullable = true)
+ |    |-- key1: string (nullable = true)
+ |    |-- key2: string (nullable = true)
+ |    |-- key3: string (nullable = true)
+ |    |-- key4: string (nullable = true)
+ |-- id: long (nullable = true)
+ |-- name: string (nullable = true)
+ |-- scores: array (nullable = true)
+ |    |-- element: long (containsNull = true)

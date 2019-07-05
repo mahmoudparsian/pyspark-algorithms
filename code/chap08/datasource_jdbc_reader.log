@@ -1,0 +1,49 @@
+export JAR="/pyspark_book/jars/mysql-connector-java-5.1.42.jar"
+
+./bin/spark-submit --jars $JAR datasource_jdbc_reader.py  "jdbc:mysql://localhost/metadb" "com.mysql.jdbc.Driver" "root" "mp22_pass" "dept"
+
+spark= <pyspark.sql.session.SparkSession object at 0x103a90cd0>
+
+JDBC_URL = jdbc:mysql://localhost/metadb
+JDBC_DRIVER = com.mysql.jdbc.Driver
+JDBC_USER = root
+JDBC_SOURCE_TABLE_NAME = dept
+
+df =  DataFrame
+[
+ dept_number: int, 
+ dept_name: string,
+ dept_location: string, 
+ manager: string
+]
+
+df.count():  7
+
+df.collect():  
+[
+ Row(dept_number=10, dept_name=u'ACCOUNTING', dept_location=u'NEW YORK, NY', manager=u'alex'), 
+ Row(dept_number=20, dept_name=u'RESEARCH', dept_location=u'DALLAS, TX', manager=u'alex'), 
+ Row(dept_number=30, dept_name=u'SALES', dept_location=u'CHICAGO, IL', manager=u'jane'), 
+ Row(dept_number=40, dept_name=u'OPERATIONS', dept_location=u'BOSTON, MA', manager=u'jane'), 
+ Row(dept_number=50, dept_name=u'MARKETING', dept_location=u'Sunnyvale, CA', manager=u'jane'), 
+ Row(dept_number=60, dept_name=u'SOFTWARE', dept_location=u'Stanford, CA', manager=u'jane'), 
+ Row(dept_number=70, dept_name=u'HARDWARE', dept_location=u'BOSTON, MA', manager=u'sophia')
+]
+
++-----------+----------+-------------+-------+
+|dept_number| dept_name|dept_location|manager|
++-----------+----------+-------------+-------+
+|         10|ACCOUNTING| NEW YORK, NY|   alex|
+|         20|  RESEARCH|   DALLAS, TX|   alex|
+|         30|     SALES|  CHICAGO, IL|   jane|
+|         40|OPERATIONS|   BOSTON, MA|   jane|
+|         50| MARKETING|Sunnyvale, CA|   jane|
+|         60|  SOFTWARE| Stanford, CA|   jane|
+|         70|  HARDWARE|   BOSTON, MA| sophia|
++-----------+----------+-------------+-------+
+
+root
+ |-- dept_number: integer (nullable = true)
+ |-- dept_name: string (nullable = true)
+ |-- dept_location: string (nullable = true)
+ |-- manager: string (nullable = true)

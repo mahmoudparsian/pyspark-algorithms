@@ -1,0 +1,47 @@
+./bin/spark-submit datasource_csv_reader_no_header.py sample_no_header.csv
+
+spark= <pyspark.sql.session.SparkSession object at 0x105b01d10>
+
+input path :  sample_no_header.csv
+
+file_contents =
+Alex,Sunnyvale,30
+Mary,Cupertino,28
+Jane,Stanford,44
+Bob,Ames,33
+
+df =  
+[
+ Row(_c0=u'Alex', _c1=u'Sunnyvale', _c2=30), 
+ Row(_c0=u'Mary', _c1=u'Cupertino', _c2=28), 
+ Row(_c0=u'Jane', _c1=u'Stanford', _c2=44), 
+ Row(_c0=u'Bob', _c1=u'Ames', _c2=33)
+]
+
++----+---------+---+
+| _c0|      _c1|_c2|
++----+---------+---+
+|Alex|Sunnyvale| 30|
+|Mary|Cupertino| 28|
+|Jane| Stanford| 44|
+| Bob|     Ames| 33|
++----+---------+---+
+
+root
+ |-- _c0: string (nullable = true)
+ |-- _c1: string (nullable = true)
+ |-- _c2: integer (nullable = true)
+
++----+---------+---+
+|name|     city|age|
++----+---------+---+
+|Alex|Sunnyvale| 30|
+|Mary|Cupertino| 28|
+|Jane| Stanford| 44|
+| Bob|     Ames| 33|
++----+---------+---+
+
+root
+ |-- name: string (nullable = true)
+ |-- city: string (nullable = true)
+ |-- age: integer (nullable = true)

@@ -1,0 +1,49 @@
+./bin/spark-submit datasource_textfile_writer.py /tmp/zoutput
+
+spark= <pyspark.sql.session.SparkSession object at 0x102fc9dd0>
+
+output_path :  /tmp/zoutput
+
+data =  
+[
+ 'data element 1', 
+ 'data element 2', 
+ 'data element 3', 
+ 'data element 4'
+]
+records =  ParallelCollectionRDD[0] at parallelize at PythonRDD.scala:175
+records.count() =  4
+records.collect() =  
+[
+ 'data element 1', 
+ 'data element 2', 
+ 'data element 3', 
+ 'data element 4'
+]
+loaded_records =  /tmp/zoutput MapPartitionsRDD[6] at textFile at NativeMethodAccessorImpl.java:0
+loaded_records.count() =  4
+loaded_records.collect() =  
+[
+ u'data element 3', 
+ u'data element 2', 
+ u'data element 1', 
+ u'data element 4'
+]
+
+$ ls -l /tmp/zoutput/
+total 32
+-rw-r--r--  1 mparsian  wheel   0 Nov  7 20:50 _SUCCESS
+-rw-r--r--  1 mparsian  wheel   0 Nov  7 20:50 part-00000
+-rw-r--r--  1 mparsian  wheel  15 Nov  7 20:50 part-00001
+-rw-r--r--  1 mparsian  wheel   0 Nov  7 20:50 part-00002
+-rw-r--r--  1 mparsian  wheel  15 Nov  7 20:50 part-00003
+-rw-r--r--  1 mparsian  wheel   0 Nov  7 20:50 part-00004
+-rw-r--r--  1 mparsian  wheel  15 Nov  7 20:50 part-00005
+-rw-r--r--  1 mparsian  wheel   0 Nov  7 20:50 part-00006
+-rw-r--r--  1 mparsian  wheel  15 Nov  7 20:50 part-00007
+
+$ cat /tmp/zoutput/part*
+data element 1
+data element 2
+data element 3
+data element 4

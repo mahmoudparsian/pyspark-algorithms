@@ -1,0 +1,66 @@
+export JAR="/pyspark_book/code/jars/mysql-connector-java-5.1.42.jar"
+
+./bin/spark-submit --jars $JAR datasource_jdbc_writer.py  "jdbc:mysql://localhost/metadb" "com.mysql.jdbc.Driver" "root" "mp22_pass" "people"
+
+spark= <pyspark.sql.session.SparkSession object at 0x102441590>
+
+JDBC_URL =  jdbc:mysql://localhost/metadb
+JDBC_DRIVER =  com.mysql.jdbc.Driver
+JDBC_USER =  root
+JDBC_TARGET_TABLE_NAME =  people
+
+df =  DataFrame[name: string, city: string, age: bigint]
+df.count():  5
+df.collect():  
+[
+ Row(name=u'Alex', city=u'Ames', age=50), 
+ Row(name=u'Gandalf', city=u'Cupertino', age=60), 
+ Row(name=u'Thorin', city=u'Sunnyvale', age=95), 
+ Row(name=u'Betty', city=u'Ames', age=78), 
+ Row(name=u'Brian', city=u'Stanford', age=77)
+]
+
++-------+---------+---+
+|   name|     city|age|
++-------+---------+---+
+|   Alex|     Ames| 50|
+|Gandalf|Cupertino| 60|
+| Thorin|Sunnyvale| 95|
+|  Betty|     Ames| 78|
+|  Brian| Stanford| 77|
++-------+---------+---+
+
+root
+ |-- name: string (nullable = true)
+ |-- city: string (nullable = true)
+ |-- age: long (nullable = true)
+
+
+#----------------------------------------
+# Check and Verify database table: people
+#----------------------------------------
+$ mysql -uroot -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 24
+Server version: 5.7.18 MySQL Community Server (GPL)
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use metadb
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from people;
++---------+-----------+------+
+| name    | city      | age  |
++---------+-----------+------+
+| Betty   | Ames      |   78 |
+| Gandalf | Cupertino |   60 |
+| Thorin  | Sunnyvale |   95 |
+| Brian   | Stanford  |   77 |
+| Alex    | Ames      |   50 |
++---------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql>

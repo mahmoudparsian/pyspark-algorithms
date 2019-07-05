@@ -1,0 +1,35 @@
+JAR="/pyspark_book/code/jars/spark-redis-2.3.1-SNAPSHOT-jar-with-dependencies.jar"
+./bin/spark-submit --jars ${JAR} datasource_redis_reader.py localhost 6379
+
+REDIS_HOST =  localhost
+
+REDIS_PORT =  6379
+
+spark= <pyspark.sql.session.SparkSession object at 0x10d8fe490>
+
+loaded_df =
+ DataFrame[name: string, city: string, age: bigint]
+loaded_df.count():  5
+loaded_df.collect():  
+[
+ Row(name=u'Brian', city=u'Stanford', age=77), 
+ Row(name=u'Alex', city=u'Ames', age=50), 
+ Row(name=u'Gandalf', city=u'Cupertino', age=60), 
+ Row(name=u'Thorin', city=u'Sunnyvale', age=95), 
+ Row(name=u'Betty', city=u'Ames', age=78)
+]
+
++-------+---------+---+
+|   name|     city|age|
++-------+---------+---+
+|  Brian| Stanford| 77|
+|   Alex|     Ames| 50|
+|Gandalf|Cupertino| 60|
+| Thorin|Sunnyvale| 95|
+|  Betty|     Ames| 78|
++-------+---------+---+
+
+root
+ |-- name: string (nullable = true)
+ |-- city: string (nullable = true)
+ |-- age: long (nullable = true)

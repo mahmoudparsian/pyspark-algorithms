@@ -1,0 +1,23 @@
+export SPARK_HOME="/pyspark_book/spark-2.4.3"
+export SPARK_PROG="/pyspark_book/code/chap08/datasource_elasticsearch_reader.py"
+export ELASTIC_SEARCH_HOST="localhost"
+export JAR="/pyspark_book/jars/elasticsearch-hadoop-6.4.2.jar"
+#
+# run the PySpark program:
+$SPARK_HOME/bin/spark-submit --jars "${JAR}" $SPARK_PROG ${ELASTIC_SEARCH_HOST}
+
+es_hostname :  localhost
+
+spark= <pyspark.sql.session.SparkSession object at 0x107f1ed30>
+
+rs_rdd :  MapPartitionsRDD[2] at mapPartitions at SerDeUtil.scala:244
+
+es_rdd.count() :  4
+
+es_rdd.collect():  
+[
+ ('100', {'key1': 'some_value1', 'doc_id': 100}), 
+ ('200', {'key2': 'some_value2', 'doc_id': 200}), 
+ ('300', {'key3': 'some_value3', 'doc_id': 300}), 
+ ('400', {'key4': 'some_value4', 'doc_id': 400})
+]

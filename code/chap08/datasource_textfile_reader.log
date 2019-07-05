@@ -1,0 +1,62 @@
+$ cat sample_numbers.txt
+123,344,455,6666,2,300
+7777,4444,55
+22,34
+900,901,902,9000,5600,5600,5700,45
+45
+70,71,72
+  
+$ export INPUT_PATH="sample_numbers.txt"
+$ ./bin/spark-submit datasource_textfile_reader.py ${INPUT_PATH}
+
+spark= <pyspark.sql.session.SparkSession object at 0x10f8a8c90>
+
+input_path :  sample_numbers.txt
+
+file_contents =
+123,344,455,6666,2,300
+7777,4444,55
+22,34
+900,901,902,9000,5600,5600,5700,45
+45
+70,71,72
+
+records =  sample_numbers.txt MapPartitionsRDD[1] at textFile at NativeMethodAccessorImpl.java:0
+records.count() =  6
+records.collect() =  
+[
+ u'123,344,455,6666,2,300', 
+ u'7777,4444,55', 
+ u'22,34', 
+ u'900,901,902,9000,5600,5600,5700,45', 
+ u'45', 
+ u'70,71,72'
+]
+numbers =  PythonRDD[3] at RDD at PythonRDD.scala:48
+numbers.count() =  23
+numbers.collect() =  
+[
+ 123, 
+ 344, 
+ 455, 
+ 6666, 
+ 2, 
+ 300, 
+ 7777, 
+ 4444, 
+ 55, 
+ 22, 
+ 34, 
+ 900, 
+ 901, 
+ 902, 
+ 9000, 
+ 5600, 
+ 5600, 
+ 5700, 
+ 45, 
+ 45, 
+ 70, 
+ 71, 
+ 72
+]

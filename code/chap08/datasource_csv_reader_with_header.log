@@ -1,0 +1,35 @@
+./bin/spark-submit datasource_csv_reader_with_header.py sample_with_header.csv
+
+spark= <pyspark.sql.session.SparkSession object at 0x1023d3c50>
+
+input path :  sample_with_header.csv
+
+file_contents =
+name,city,age
+Alex,Sunnyvale,30
+Mary,Cupertino,28
+Jane,Stanford,44
+Bob,Ames,33
+
+df.count() =  4
+df.collect() =  
+[
+ Row(name=u'Alex', city=u'Sunnyvale', age=30), 
+ Row(name=u'Mary', city=u'Cupertino', age=28), 
+ Row(name=u'Jane', city=u'Stanford', age=44), 
+ Row(name=u'Bob', city=u'Ames', age=33)
+]
+
++----+---------+---+
+|name|     city|age|
++----+---------+---+
+|Alex|Sunnyvale| 30|
+|Mary|Cupertino| 28|
+|Jane| Stanford| 44|
+| Bob|     Ames| 33|
++----+---------+---+
+
+root
+ |-- name: string (nullable = true)
+ |-- city: string (nullable = true)
+ |-- age: integer (nullable = true)

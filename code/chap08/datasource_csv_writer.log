@@ -1,0 +1,103 @@
+export SPARK_HOME="/pyspark_book/spark-2.4.3"
+export SPARK_PROG="/pyspark_book/code/chap08/datasource_csv_writer.py"
+export OUTPUT_CSV_FILE_PATH="/tmp/output.csv"
+#
+# run the PySpark program:
+$SPARK_HOME/bin/spark-submit $SPARK_PROG ${OUTPUT_CSV_FILE_PATH}
+
+output_csv_file_path :  /tmp/output.csv
+
+spark= <pyspark.sql.session.SparkSession object at 0x10db43c90>
+
+output dir name:  /tmp/output.csv
+
+dir_listing:  
+[
+ '._SUCCESS.crc', 
+ 'part-00005-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv', 
+ 'part-00004-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv', 
+ 'part-00007-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv', 
+ '.part-00004-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv.crc', 
+ '.part-00005-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv.crc', 
+ '.part-00007-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv.crc', 
+ 'part-00006-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv', 
+ '.part-00006-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv.crc', 
+ '.part-00001-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv.crc', 
+ 'part-00001-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv', 
+ '.part-00000-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv.crc', 
+ '.part-00002-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv.crc', 
+ 'part-00000-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv', 
+ '.part-00003-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv.crc', 
+ '_SUCCESS', 'part-00003-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv', 
+ 'part-00002-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv'
+]
+
+output file name:  /tmp/output.csv/part-00005-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv
+file_contents =
+George,Cupertino,60
+
+output file name:  /tmp/output.csv/part-00004-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv
+file_contents =
+Max,Ames,55
+
+output file name:  /tmp/output.csv/part-00007-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv
+file_contents =
+Betty,Ames,78
+Brian,Stanford,77
+
+output file name:  /tmp/output.csv/part-00006-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv
+file_contents =
+Terry,Sunnyvale,95
+
+output file name:  /tmp/output.csv/part-00001-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv
+file_contents =
+Alex,Sunnyvale,51
+
+output file name:  /tmp/output.csv/part-00000-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv
+file_contents =
+Alex,Ames,50
+
+output file name:  /tmp/output.csv/part-00003-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv
+file_contents =
+Gandalf,Cupertino,60
+Thorin,Sunnyvale,95
+
+output file name:  /tmp/output.csv/part-00002-a15a4fec-d268-4734-a484-86623c69be4e-c000.csv
+file_contents =
+Alex,Stanford,52
+
++-------+---------+---+
+|name   |city     |age|
++-------+---------+---+
+|Alex   |Ames     |50 |
+|Alex   |Sunnyvale|51 |
+|Alex   |Stanford |52 |
+|Gandalf|Cupertino|60 |
+|Thorin |Sunnyvale|95 |
+|Max    |Ames     |55 |
+|George |Cupertino|60 |
+|Terry  |Sunnyvale|95 |
+|Betty  |Ames     |78 |
+|Brian  |Stanford |77 |
++-------+---------+---+
+
+people.count() =  10
+people.collect() =  
+[
+ Row(name=u'Alex', city=u'Ames', age=50), 
+ Row(name=u'Alex', city=u'Sunnyvale', age=51), 
+ Row(name=u'Alex', city=u'Stanford', age=52), 
+ Row(name=u'Gandalf', city=u'Cupertino', age=60), 
+ Row(name=u'Thorin', city=u'Sunnyvale', age=95), 
+ Row(name=u'Max', city=u'Ames', age=55), 
+ Row(name=u'George', city=u'Cupertino', age=60), 
+ Row(name=u'Terry', city=u'Sunnyvale', age=95), 
+ Row(name=u'Betty', city=u'Ames', age=78), 
+ Row(name=u'Brian', city=u'Stanford', age=77)
+]
+
+root
+ |-- name: string (nullable = true)
+ |-- city: string (nullable = true)
+ |-- age: long (nullable = true)
+

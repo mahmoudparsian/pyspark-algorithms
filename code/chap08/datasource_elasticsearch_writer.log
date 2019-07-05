@@ -1,0 +1,98 @@
+export SPARK_HOME="/pyspark_book/spark-2.4.3"
+export SPARK_PROG="/pyspark_book/code/chap08/datasource_elasticsearch_writer.py"
+export ELASTIC_SEARCH_HOST="localhost"
+export JAR="/pyspark_book/jars/elasticsearch-hadoop-6.4.2.jar"
+#
+# run the PySpark program:
+$SPARK_HOME/bin/spark-submit --jars "${JAR}" $SPARK_PROG ${ELASTIC_SEARCH_HOST}
+
+es_hostname :  localhost
+
+spark= <pyspark.sql.session.SparkSession object at 0x107fa8208>
+
+data :
+[
+ {'key1': 'some_value1', 'doc_id': 100}, 
+ {'key2': 'some_value2', 'doc_id': 200}, 
+ {'key3': 'some_value3', 'doc_id': 300}, 
+ {'key4': 'some_value4', 'doc_id': 400}
+]
+
+rdd :  ParallelCollectionRDD[0] at parallelize at PythonRDD.scala:175
+rdd.count() :  4
+rdd.collect():  
+[
+ {'key1': 'some_value1', 'doc_id': 100}, 
+ {'key2': 'some_value2', 'doc_id': 200}, 
+ {'key3': 'some_value3', 'doc_id': 300}, 
+ {'key4': 'some_value4', 'doc_id': 400}
+]
+rdd_formatted.count() :  4
+rdd_formatted.collect() :  
+[
+ (100, '{"key1": "some_value1", "doc_id": 100}'), 
+ (200, '{"key2": "some_value2", "doc_id": 200}'), 
+ (300, '{"key3": "some_value3", "doc_id": 300}'), 
+ (400, '{"key4": "some_value4", "doc_id": 400}')
+]
+
+$ curl -XGET 'http://localhost:9200/testindex/testdoc/100?pretty=true'
+{
+  "_index" : "testindex",
+  "_type" : "testdoc",
+  "_id" : "100",
+  "_version" : 1,
+  "found" : true,
+  "_source" : {
+    "key1" : "some_value1",
+    "doc_id" : 100
+  }
+}
+
+
+$ curl -XGET 'http://localhost:9200/testindex/testdoc/200?pretty=true'
+{
+  "_index" : "testindex",
+  "_type" : "testdoc",
+  "_id" : "200",
+  "_version" : 1,
+  "found" : true,
+  "_source" : {
+    "key2" : "some_value2",
+    "doc_id" : 200
+  }
+}
+
+$ curl -XGET 'http://localhost:9200/testindex/testdoc/300?pretty=true'
+{
+  "_index" : "testindex",
+  "_type" : "testdoc",
+  "_id" : "300",
+  "_version" : 1,
+  "found" : true,
+  "_source" : {
+    "key3" : "some_value3",
+    "doc_id" : 300
+  }
+}
+
+$ curl -XGET 'http://localhost:9200/testindex/testdoc/400?pretty=true'
+{
+  "_index" : "testindex",
+  "_type" : "testdoc",
+  "_id" : "400",
+  "_version" : 1,
+  "found" : true,
+  "_source" : {
+    "key4" : "some_value4",
+    "doc_id" : 400
+  }
+}
+
+$ curl -XGET 'http://localhost:9200/testindex/testdoc/500?pretty=true'
+{
+  "_index" : "testindex",
+  "_type" : "testdoc",
+  "_id" : "500",
+  "found" : false
+}

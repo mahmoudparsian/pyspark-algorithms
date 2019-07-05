@@ -1,0 +1,41 @@
+$ cat z1.file.txt
+z1: record1
+z1: record2
+z1: record3
+
+$ cat z2.file.txt
+z2: record1
+z2: record2
+z2: record3
+z2: record4
+
+# gzip the files: z11.file.txt and z22.file.txt
+$ cp z1.file.txt z11.file.txt
+$ cp z2.file.txt z22.file.txt
+$ gzip z11.file.txt
+$ gzip z22.file.txt
+  
+$ ls -l z*gz
+-rw-r--r--  1   52  z11.file.txt.gz
+-rw-r--r--  1   55  z22.file.txt.gz 
+  
+$ export INPUT_PATH="z11.file.txt.gz,z22.file.txt.gz"
+
+$ ./bin/spark-submit  datasource_gzip_reader.py  $INPUT_PATH
+
+spark= <pyspark.sql.session.SparkSession object at 0x10fcffd50>
+
+gz_input_path :  z11.file.txt.gz,z22.file.txt.gz
+
+gzip_rdd =  z11.file.txt.gz,z22.file.txt.gz MapPartitionsRDD[1] at textFile at NativeMethodAccessorImpl.java:0
+gzip_rdd.count() =  7
+gzip_rdd.collect() =  
+[
+ u'z1: record1', 
+ u'z1: record2', 
+ u'z1: record3', 
+ u'z2: record1', 
+ u'z2: record2', 
+ u'z2: record3', 
+ u'z2: record4'
+]

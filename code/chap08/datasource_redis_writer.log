@@ -1,0 +1,81 @@
+JAR="/pyspark_book/code/jars/spark-redis-2.3.1-SNAPSHOT-jar-with-dependencies.jar"
+./bin/spark-submit --jars ${JAR} datasource_redis_writer.py localhost 6379
+
+REDIS_HOST =  localhost
+
+REDIS_PORT =  6379
+
+spark= <pyspark.sql.session.SparkSession object at 0x109404490>
+
+df =
+ DataFrame[name: string, city: string, age: bigint]
+df.count():  5
+df.collect():  
+[
+ Row(name=u'Alex', city=u'Ames', age=50), 
+ Row(name=u'Gandalf', city=u'Cupertino', age=60), 
+ Row(name=u'Thorin', city=u'Sunnyvale', age=95), 
+ Row(name=u'Betty', city=u'Ames', age=78), 
+ Row(name=u'Brian', city=u'Stanford', age=77)
+]
+
++-------+---------+---+
+|   name|     city|age|
++-------+---------+---+
+|   Alex|     Ames| 50|
+|Gandalf|Cupertino| 60|
+| Thorin|Sunnyvale| 95|
+|  Betty|     Ames| 78|
+|  Brian| Stanford| 77|
++-------+---------+---+
+
+root
+ |-- name: string (nullable = true)
+ |-- city: string (nullable = true)
+ |-- age: long (nullable = true)
+
+loaded_df =
+ DataFrame[name: string, city: string, age: bigint]
+loaded_df.count():  5
+loaded_df.collect():  
+[
+ Row(name=u'Gandalf', city=u'Cupertino', age=60), 
+ Row(name=u'Brian', city=u'Stanford', age=77), 
+ Row(name=u'Betty', city=u'Ames', age=78), 
+ Row(name=u'Alex', city=u'Ames', age=50), 
+ Row(name=u'Thorin', city=u'Sunnyvale', age=95)
+]
++-------+---------+---+
+|   name|     city|age|
++-------+---------+---+
+|Gandalf|Cupertino| 60|
+|  Brian| Stanford| 77|
+|  Betty|     Ames| 78|
+|   Alex|     Ames| 50|
+| Thorin|Sunnyvale| 95|
++-------+---------+---+
+
+root
+ |-- name: string (nullable = true)
+ |-- city: string (nullable = true)
+ |-- age: long (nullable = true)
+
+
+$ src/redis-cli
+127.0.0.1:6379> set foo bar
+OK
+127.0.0.1:6379> get foo
+"bar"
+
+127.0.0.1:6379> hgetall people:Alex
+1) "city"
+2) "Ames"
+3) "age"
+4) "50"
+
+127.0.0.1:6379> hgetall people:Betty
+1) "city"
+2) "Ames"
+3) "age"
+4) "78"
+
