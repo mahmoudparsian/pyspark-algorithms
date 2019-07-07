@@ -5,9 +5,7 @@
 * Publication date: Fall 2019
 * Author: Mahmoud Parsian (<mahmoud.parsian@yahoo.com>)
 
-
-![PySpark Algorithms](./images/pyspark_algorithms.jpg)
-<img src="./images/pyspark_algorithms.jpg" alt="drawing" width="600" height="300"/>
+<img src="./images/pyspark_algorithms.jpg" alt="drawing" width="500" height="300"/>
 
 ## Software
 
