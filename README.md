@@ -31,6 +31,7 @@ chap12: Design Patterns and Monoids
 
 Appendix A: How To Install Spark
 Appendix B: How to Use Lambda Expressions
+Appendix C: Questions And Answers
 ````
 
 ## Future chapters:
