@@ -14,29 +14,28 @@
 * Java 8
 
 ## Table of Contents
-````
-chap01: Introduction to PySpark
-chap02: Hello World
-chap03: Data Abstractions
-[chap04: Getting Started](./sample_chapters/)
-chap05: Transformations in Spark
-chap06: Reductions in Spark
-chap07: DataFrames and SQL
-chap08: Spark DataSources
-chap09: Logistic Regression
-chap10: Movie Recommendations
-chap11: Graph Algorithms
-chap12: Design Patterns and Monoids
 
-Appendix A: How To Install Spark
-Appendix B: How to Use Lambda Expressions
-Appendix C: Questions And Answers
-````
+chap01: Introduction to PySpark  
+chap02: Hello World  
+chap03: Data Abstractions  
+[chap04: Getting Started](./sample_chapters/)  
+chap05: Transformations in Spark  
+chap06: Reductions in Spark  
+chap07: DataFrames and SQL  
+chap08: Spark DataSources  
+chap09: Logistic Regression  
+chap10: Movie Recommendations  
+chap11: Graph Algorithms  
+chap12: Design Patterns and Monoids  
+
+Appendix A: How To Install Spark  
+Appendix B: How to Use Lambda Expressions  
+Appendix C: Questions And Answers  
+
 
 ## Future chapters:
 
-````
-chap13: FP-Growth
-chap14: LDA
-chap15: Linear Regression
-````
+chap13: FP-Growth  
+chap14: LDA  
+chap15: Linear Regression  
+
