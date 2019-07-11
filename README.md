@@ -18,7 +18,7 @@
 chap01: Introduction to PySpark
 chap02: Hello World
 chap03: Data Abstractions
-chap04: Getting Started
+[chap04: Getting Started](./sample_chapters/)
 chap05: Transformations in Spark
 chap06: Reductions in Spark
 chap07: DataFrames and SQL
