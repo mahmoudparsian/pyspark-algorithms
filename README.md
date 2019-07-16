@@ -11,6 +11,7 @@
 
 * Spark 2.4.3
 * Python 3.7.2
+	* [Plan for dropping Python 2 support](http://spark.apache.org/news/plan-for-dropping-python-2-support.html)
 * Java 8
 
 ## Table of Contents
@@ -30,7 +31,7 @@ chap12: Design Patterns and Monoids
 
 Appendix A: How To Install Spark  
 Appendix B: How to Use Lambda Expressions  
-Appendix C: Questions And Answers  
+Appendix C: Questions And Answers (50 QA)  
 
 
 ## Future chapters:
