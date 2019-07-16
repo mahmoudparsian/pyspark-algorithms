@@ -9,17 +9,17 @@
 
 ## Software
 
-* Spark 2.4.3
-* Python 3.7.2
+* [Spark 2.4.3](http://spark.apache.org)
+* [Python 3.7.2](https://www.python.org/ftp/python/3.7.4/python-3.7.4-macosx10.9.pkg)
 	* [Plan for dropping Python 2 support](http://spark.apache.org/news/plan-for-dropping-python-2-support.html)
-* Java 8
+* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 ## Table of Contents
 
 chap01: Introduction to PySpark  
 chap02: Hello World  
 chap03: Data Abstractions  
-[chap04: Getting Started](./sample_chapters/)  
+[chap04: Getting Started -- Sample Chapter](./sample_chapters/)  
 chap05: Transformations in Spark  
 chap06: Reductions in Spark  
 chap07: DataFrames and SQL  
