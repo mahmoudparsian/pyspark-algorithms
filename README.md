@@ -40,3 +40,10 @@ chap13: FP-Growth
 chap14: LDA  
 chap15: Linear Regression  
 
+[//]: # (metadata:)
+[//]: # (Spark, PySpark, Python)
+[//]: # (MapReduce, Distributed Algorithms, mappers, reducers, partitioners)
+[//]: # (Transformations, Actions, RDDs, DataFrames, SQL, Graph Algorithms)
+[//]: # (Data Abstractions, Reductions in Spark, Design Patterns and Monoids)
+[//]: # (Machine Learning, Logistic Regression, Spark Data Sources)
+[//]: # (Partitioning, Data Partitioning)
