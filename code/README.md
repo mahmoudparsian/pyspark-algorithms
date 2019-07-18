@@ -6,11 +6,12 @@
   code of **PySpark Algorithms** book by 
   [Mahmoud Parsian](https://www.linkedin.com/in/mahmoudparsian/).
 
-* Each chapter contains source code 
-  (PySpark and Python), related shell 
-  scripts, and some sample data to run 
-  the programs. 
-  
+* Each chapter contains 
+	* Source code for PySpark programs
+	* Sample shell scripts (how to invoke PySpark programs)
+	* Sample data
+	* Sample log files to show I/O
+	
 
 ## PySpark
 
