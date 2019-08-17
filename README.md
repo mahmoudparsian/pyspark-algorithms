@@ -2,8 +2,10 @@
 
 * This book is about PySpark (Python API for Spark)
 * Introductory book on how to solve data problems using PySpark
-* Publication date: Fall 2019
+* Publication date: August 2019
 * Author: Mahmoud Parsian (<mahmoud.parsian@yahoo.com>)
+* [Purchase PySpark Algorithms Book from amazon.com](https://www.amazon.com/dp/B07WQHTVCJ/ref=sr_1_1)
+
 
 <img src="./images/pyspark_algorithms.jpg" alt="drawing" width="500" height="300"/>
 
