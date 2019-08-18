@@ -1,11 +1,19 @@
 # PySpark Algorithms Book
 
+### Author: Mahmoud Parsian (<mahmoud.parsian@yahoo.com>)
+### Publication date: August 2019
+### [Purchase PySpark Algorithms Book from amazon.com](https://www.amazon.com/dp/B07WQHTVCJ/ref=sr_1_1)
+
+### About PySpark Algorithms Book
 * This book is about PySpark (Python API for Spark)
 * Introductory book on how to solve data problems using PySpark
-* Publication date: August 2019
-* Author: Mahmoud Parsian (<mahmoud.parsian@yahoo.com>)
-* [Purchase PySpark Algorithms Book from amazon.com](https://www.amazon.com/dp/B07WQHTVCJ/ref=sr_1_1)
-
+* Learn how to use Spark's transformations and actions for solving real problems
+* Learn how to use RDDs and DataFrames
+* Learn how to read/write data from many data sources
+* Learn how to use Logistic regression
+* Learn how to use Spark's reduction transformations
+* Learn how to use GraphFrames
+* Learn how to use Monoids in MapReduce algorithms 
 
 <img src="./images/pyspark_algorithms.jpg" alt="drawing" width="500" height="300"/>
 
