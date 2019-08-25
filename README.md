@@ -22,7 +22,8 @@
 ---
 
 <a href="https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/">
-	     <img src="./images/pyspark_algorithms2.jpg" width="380" height="550" alt="" border=3/>
+  <img src="./images/pyspark_algorithms2.jpg" alt="PySpark-Algorithms" style="width:42px;height:42px;border:0;">
+</a>
 
 ---
 
