@@ -21,7 +21,7 @@
 
 ---
 
-[![PyData Algorithms Book](./images/pyspark_algorithms.jpg)](https://www.amazon.com/dp/B07WQHTVCJ/ref=sr_1_1)
+[![PyData Algorithms Book](./images/pyspark_algorithms.jpg =450x250)](https://www.amazon.com/dp/B07WQHTVCJ/ref=sr_1_1)
 
 ---
 
