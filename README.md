@@ -1,8 +1,12 @@
 # PySpark Algorithms Book
 
+---
+
 ### Author: Mahmoud Parsian (<mahmoud.parsian@yahoo.com>)
-### Publication date: August 2019
 ### [Purchase PySpark Algorithms Book from amazon.com](https://www.amazon.com/dp/B07WQHTVCJ/ref=sr_1_1)
+### Publication date: August 2019
+
+---
 
 ### About PySpark Algorithms Book
 * This book is about PySpark (Python API for Spark)
@@ -15,8 +19,11 @@
 * Learn how to use GraphFrames
 * Learn how to use Monoids in MapReduce algorithms 
 
+---
 
 [![PyData Algorithms Book](./images/pyspark_algorithms.jpg)](https://www.amazon.com/dp/B07WQHTVCJ/ref=sr_1_1)
+
+---
 
 ## Software
 
@@ -24,6 +31,8 @@
 * [Python 3.7.2](https://www.python.org/ftp/python/3.7.4/python-3.7.4-macosx10.9.pkg)
 	* [Plan for dropping Python 2 support](http://spark.apache.org/news/plan-for-dropping-python-2-support.html)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+
+---
 
 ## Table of Contents
 
@@ -44,6 +53,7 @@ Appendix A: How To Install Spark
 Appendix B: How to Use Lambda Expressions  
 Appendix C: Questions And Answers (50 QA)  
 
+---
 
 ## Future chapters:
 
