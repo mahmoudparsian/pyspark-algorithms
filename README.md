@@ -15,7 +15,8 @@
 * Learn how to use GraphFrames
 * Learn how to use Monoids in MapReduce algorithms 
 
-<img src="./images/pyspark_algorithms.jpg" alt="drawing" width="500" height="300"/>
+
+[![PyData Algorithms Book](./images/pyspark_algorithms.jpg)](https://www.amazon.com/dp/B07WQHTVCJ/ref=sr_1_1)
 
 ## Software
 
