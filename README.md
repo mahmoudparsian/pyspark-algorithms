@@ -21,7 +21,8 @@
 
 ---
 
-[![PyData Algorithms Book](./images/pyspark_algorithms.jpg =450x250)](https://www.amazon.com/dp/B07WQHTVCJ/ref=sr_1_1)
+<a href="https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/">
+	     <img src="./images/pyspark_algorithms2.jpg" width="380" height="550" alt="" border=3/>
 
 ---
 
