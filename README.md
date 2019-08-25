@@ -26,7 +26,7 @@
 
 ---
 
-[![PySpark Algorithms Book](./images/pyspark_algorithms3.jpg)](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
+[![PySpark Algorithms Book](./images/pyspark_algorithms0.jpg)](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
 
 ---
 
@@ -76,4 +76,4 @@ chap15: Linear Regression
 
 ---
 
-[![PySpark Algorithms Book](./images/pyspark_algorithms3.jpg)](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
+[![PySpark Algorithms Book](./images/pyspark_algorithms0.jpg)](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
