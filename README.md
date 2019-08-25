@@ -21,7 +21,7 @@
 
 ---
 
-[![PySpark Algorithms Book](./images/pyspark_algorithms2.jpg)](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
+[![PySpark Algorithms Book](./images/pyspark_algorithms3.jpg)](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
 
 ---
 
