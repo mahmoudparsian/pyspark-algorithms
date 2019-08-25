@@ -1,14 +1,14 @@
-# PySpark Algorithms Book
+# [PySpark Algorithms Book](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
 
 ---
 
-### Author: Mahmoud Parsian (<mahmoud.parsian@yahoo.com>)
-### [Purchase PySpark Algorithms Book from amazon.com](https://www.amazon.com/dp/B07WQHTVCJ/ref=sr_1_1)
-### Publication date: August 2019
+## Author: Mahmoud Parsian (<mahmoud.parsian@yahoo.com>)
+## [Purchase PySpark Algorithms Book from amazon.com](https://www.amazon.com/dp/B07WQHTVCJ/ref=sr_1_1)
+## Publication date: August 2019
 
 ---
 
-### About PySpark Algorithms Book
+## About PySpark Algorithms Book
 * This book is about PySpark (Python API for Spark)
 * Introductory book on how to solve data problems using PySpark
 * Learn how to use Spark's transformations and actions for solving real problems
@@ -21,9 +21,7 @@
 
 ---
 
-<a href="https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/">
-  <img src="./images/pyspark_algorithms2.jpg" alt="PySpark-Algorithms" style="width:42px;height:42px;border:0;">
-</a>
+[![Data Algorithms Book](./images/pyspark_algorithms2.jpg)](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
 
 ---
 
