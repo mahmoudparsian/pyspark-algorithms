@@ -1,8 +1,10 @@
-# [PySpark Algorithms Book](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
+# Unlock the Power of Big Data by PySpark Algorithms book
 
+## [PySpark Algorithms Book -- PDF Version](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
+## [PySpark Algorithms Book -- Kindle Version](https://www.amazon.com/dp/B07X4B2218/ref=sr_1_2)
 ---
 
-# [Unlock the Power of Big Data by PySpark Algorithms](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
+# [](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
 
 ---
 
