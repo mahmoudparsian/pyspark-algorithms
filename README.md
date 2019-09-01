@@ -8,13 +8,11 @@
 
 ---
 
-# [](https://www.amazon.com/PySpark-Algorithms-Mahmoud-Parsian-ebook/dp/B07WQHTVCJ/)
 
----
-
-## Author: Mahmoud Parsian (<mahmoud.parsian@yahoo.com>)
-## [Purchase PySpark Algorithms Book from amazon.com](https://www.amazon.com/dp/B07X4B2218/ref=sr_1_2)
-## Publication date: August 2019
+## PySpark Algorithms Book:
+#### Author: Mahmoud Parsian (<mahmoud.parsian@yahoo.com>)
+#### [Purchase PySpark Algorithms Book from amazon.com](https://www.amazon.com/dp/B07X4B2218/ref=sr_1_2)
+#### Publication date: August 2019
 
 ---
 
