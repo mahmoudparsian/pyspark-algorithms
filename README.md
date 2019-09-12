@@ -64,7 +64,7 @@ chap12: Design Patterns and Monoids
 
 Appendix A: How To Install Spark  
 Appendix B: How to Use Lambda Expressions  
-Appendix C: Questions And Answers (50+ QA)  
+[Appendix C: Questions And Answers (50+ QA)](./sample_chapters/) 
 
 ---
 
@@ -75,8 +75,9 @@ chap14: LDA
 chap15: Linear Regression  
 
 [//]: # (metadata:)
-[//]: # (Spark, PySpark, Python)
-[//]: # (MapReduce, Distributed Algorithms, map, mappers, filters, reduce, reducers, reductions,  partitioners)
+[//]: # (Spark, PySpark, Python, GraphFrames, Distributed Computing)
+[//]: # (MapReduce, Distributed Algorithms, map, mappers, filters, reduce, reducers, reductions)
+[//]: # (partitioners, partitioning data, data partitioner, Parquet, NoSQL)
 [//]: # (big data, Transformations, Actions, RDDs, DataFrames, SQL, Graph Algorithms)
 [//]: # (Data Abstractions, Reductions in Spark, Design Patterns and Monoids)
 [//]: # (Machine Learning, Logistic Regression, Spark Data Sources)
