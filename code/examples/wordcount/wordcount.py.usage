@@ -1,0 +1,1 @@
+./bin/spark-submit wordcount.py foxdata.txt /tmp/output
